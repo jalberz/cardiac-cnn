@@ -1,0 +1,618 @@
+  File "train_linear.py", line 1
+    censed to the Apache Software Foundation (ASF) under one
+            ^
+SyntaxError: invalid syntax
+  File "train_linear.py", line 35
+    """
+      ^
+IndentationError: expected an indented block
+Traceback (most recent call last):
+  File "train_linear.py", line 110, in <module>
+    data_test = mx.io.CSVIter(data_csv="./local_test-64x64-data.csv", data_shape=(30, 64, 64), label_csv="./test-systole.csv", label_shape=(600,), batch_size=batch_size) 
+  File "/usr/local/lib/python3.5/dist-packages/mxnet/io.py", line 936, in creator
+    ctypes.byref(iter_handle)))
+  File "/usr/local/lib/python3.5/dist-packages/mxnet/base.py", line 149, in check_call
+    raise MXNetError(py_str(_LIB.MXGetLastError()))
+mxnet.base.MXNetError: [15:03:44] src/io/input_split_base.cc:173: Check failed: files_.size() != 0U (0 vs. 0) Cannot find any files that matches the URI pattern ./test-systole.csv
+
+Stack trace returned 10 entries:
+[bt] (0) /usr/local/lib/python3.5/dist-packages/mxnet/libmxnet.so(+0x31f81a) [0x7fbe496fc81a]
+[bt] (1) /usr/local/lib/python3.5/dist-packages/mxnet/libmxnet.so(+0x31fe41) [0x7fbe496fce41]
+[bt] (2) /usr/local/lib/python3.5/dist-packages/mxnet/libmxnet.so(+0x2a6159f) [0x7fbe4be3e59f]
+[bt] (3) /usr/local/lib/python3.5/dist-packages/mxnet/libmxnet.so(+0x2a61a57) [0x7fbe4be3ea57]
+[bt] (4) /usr/local/lib/python3.5/dist-packages/mxnet/libmxnet.so(+0x2a24cb6) [0x7fbe4be01cb6]
+[bt] (5) /usr/local/lib/python3.5/dist-packages/mxnet/libmxnet.so(+0x2a250bd) [0x7fbe4be020bd]
+[bt] (6) /usr/local/lib/python3.5/dist-packages/mxnet/libmxnet.so(+0x2a3351a) [0x7fbe4be1051a]
+[bt] (7) /usr/local/lib/python3.5/dist-packages/mxnet/libmxnet.so(+0x2a2dcd0) [0x7fbe4be0acd0]
+[bt] (8) /usr/local/lib/python3.5/dist-packages/mxnet/libmxnet.so(+0x2549223) [0x7fbe4b926223]
+[bt] (9) /usr/local/lib/python3.5/dist-packages/mxnet/libmxnet.so(+0x2548f3f) [0x7fbe4b925f3f]
+
+
+train_linear.py:120: DeprecationWarning: [91mmxnet.model.FeedForward has been deprecated. Please use mxnet.mod.Module instead.[0m
+  momentum           = 0.9)
+infer_shape error. Arguments:
+  data: (32, 30, 64, 64)
+  softmax_label: (32, 600)
+Traceback (most recent call last):
+  File "train_linear.py", line 125, in <module>
+    systole_model.fit(X=data_train, eval_data=(data_test), eval_metric = mx.metric.np(CRPS))
+  File "/usr/local/lib/python3.5/dist-packages/mxnet/model.py", line 830, in fit
+    self._init_params(data.provide_data+data.provide_label)
+  File "/usr/local/lib/python3.5/dist-packages/mxnet/model.py", line 548, in _init_params
+    arg_shapes, _, aux_shapes = self.symbol.infer_shape(**input_shapes)
+  File "/usr/local/lib/python3.5/dist-packages/mxnet/symbol/symbol.py", line 990, in infer_shape
+    res = self._infer_shape_impl(False, *args, **kwargs)
+  File "/usr/local/lib/python3.5/dist-packages/mxnet/symbol/symbol.py", line 1120, in _infer_shape_impl
+    ctypes.byref(complete)))
+  File "/usr/local/lib/python3.5/dist-packages/mxnet/base.py", line 149, in check_call
+    raise MXNetError(py_str(_LIB.MXGetLastError()))
+mxnet.base.MXNetError: Error in operator softmax: Shape inconsistent, Provided=[32,600], inferred shape=[32,1]
+./src/train_linear.py:120: DeprecationWarning: [91mmxnet.model.FeedForward has been deprecated. Please use mxnet.mod.Module instead.[0m
+  momentum           = 0.9)
+infer_shape error. Arguments:
+  softmax_label: (32, 600)
+  data: (32, 30, 64, 64)
+Traceback (most recent call last):
+  File "./src/train_linear.py", line 125, in <module>
+    systole_model.fit(X=data_train, eval_data=(data_test), eval_metric = mx.metric.np(CRPS))
+  File "/usr/local/lib/python3.5/dist-packages/mxnet/model.py", line 830, in fit
+    self._init_params(data.provide_data+data.provide_label)
+  File "/usr/local/lib/python3.5/dist-packages/mxnet/model.py", line 548, in _init_params
+    arg_shapes, _, aux_shapes = self.symbol.infer_shape(**input_shapes)
+  File "/usr/local/lib/python3.5/dist-packages/mxnet/symbol/symbol.py", line 990, in infer_shape
+    res = self._infer_shape_impl(False, *args, **kwargs)
+  File "/usr/local/lib/python3.5/dist-packages/mxnet/symbol/symbol.py", line 1120, in _infer_shape_impl
+    ctypes.byref(complete)))
+  File "/usr/local/lib/python3.5/dist-packages/mxnet/base.py", line 149, in check_call
+    raise MXNetError(py_str(_LIB.MXGetLastError()))
+mxnet.base.MXNetError: Error in operator softmax: Shape inconsistent, Provided=[32,600], inferred shape=[32,1]
+Traceback (most recent call last):
+  File "./src/train_linear.py", line 110, in <module>
+    data_test = mx.io.CSVIter(data_csv="./local_test-64x64-data.csv", data_shape=(30, 64, 64), label_csv="./train-systole.csv", label_shape=(1,), batch_size=batch_size) 
+  File "/usr/local/lib/python3.5/dist-packages/mxnet/io.py", line 941, in creator
+    return MXDataIter(iter_handle, **kwargs)
+  File "/usr/local/lib/python3.5/dist-packages/mxnet/io.py", line 800, in __init__
+    self.first_batch = self.next()
+  File "/usr/local/lib/python3.5/dist-packages/mxnet/io.py", line 834, in next
+    check_call(_LIB.MXDataIterNext(self.handle, ctypes.byref(next_res)))
+  File "/usr/local/lib/python3.5/dist-packages/mxnet/base.py", line 149, in check_call
+    raise MXNetError(py_str(_LIB.MXGetLastError()))
+mxnet.base.MXNetError: [17:29:44] src/io/iter_csv.cc:125: Check failed: row.length == shape.Size() (600 vs. 1) The data size in CSV do not match size of shape: specified shape=[1], the csv row-length=600
+
+Stack trace returned 10 entries:
+[bt] (0) /usr/local/lib/python3.5/dist-packages/mxnet/libmxnet.so(+0x31f81a) [0x7f7279e1581a]
+[bt] (1) /usr/local/lib/python3.5/dist-packages/mxnet/libmxnet.so(+0x31fe41) [0x7f7279e15e41]
+[bt] (2) /usr/local/lib/python3.5/dist-packages/mxnet/libmxnet.so(+0x253f579) [0x7f727c035579]
+[bt] (3) /usr/local/lib/python3.5/dist-packages/mxnet/libmxnet.so(+0x2541a6b) [0x7f727c037a6b]
+[bt] (4) /usr/local/lib/python3.5/dist-packages/mxnet/libmxnet.so(+0x254f3f8) [0x7f727c0453f8]
+[bt] (5) /usr/local/lib/python3.5/dist-packages/mxnet/libmxnet.so(+0x2549563) [0x7f727c03f563]
+[bt] (6) /usr/local/lib/python3.5/dist-packages/mxnet/libmxnet.so(+0x254b8ce) [0x7f727c0418ce]
+[bt] (7) /usr/lib/x86_64-linux-gnu/libstdc++.so.6(+0xb8c80) [0x7f726505ac80]
+[bt] (8) /lib/x86_64-linux-gnu/libpthread.so.0(+0x76ba) [0x7f72ac4686ba]
+[bt] (9) /lib/x86_64-linux-gnu/libc.so.6(clone+0x6d) [0x7f72ac19e41d]
+
+
+./src/train_linear.py:120: DeprecationWarning: [91mmxnet.model.FeedForward has been deprecated. Please use mxnet.mod.Module instead.[0m
+  momentum           = 0.9)
+infer_shape error. Arguments:
+  data: (32, 30, 64, 64)
+  softmax_label: (32, 600)
+Traceback (most recent call last):
+  File "./src/train_linear.py", line 125, in <module>
+    systole_model.fit(X=data_train, eval_data=(data_test), eval_metric = mx.metric.np(CRPS))
+  File "/usr/local/lib/python3.5/dist-packages/mxnet/model.py", line 830, in fit
+    self._init_params(data.provide_data+data.provide_label)
+  File "/usr/local/lib/python3.5/dist-packages/mxnet/model.py", line 548, in _init_params
+    arg_shapes, _, aux_shapes = self.symbol.infer_shape(**input_shapes)
+  File "/usr/local/lib/python3.5/dist-packages/mxnet/symbol/symbol.py", line 990, in infer_shape
+    res = self._infer_shape_impl(False, *args, **kwargs)
+  File "/usr/local/lib/python3.5/dist-packages/mxnet/symbol/symbol.py", line 1120, in _infer_shape_impl
+    ctypes.byref(complete)))
+  File "/usr/local/lib/python3.5/dist-packages/mxnet/base.py", line 149, in check_call
+    raise MXNetError(py_str(_LIB.MXGetLastError()))
+mxnet.base.MXNetError: Error in operator softmax: Shape inconsistent, Provided=[32,600], inferred shape=[32,1]
+./src/train_linear.py:120: DeprecationWarning: [91mmxnet.model.FeedForward has been deprecated. Please use mxnet.mod.Module instead.[0m
+  momentum           = 0.9)
+/usr/local/lib/python3.5/dist-packages/mxnet/model.py:572: DeprecationWarning: [91mCalling initializer with init(str, NDArray) has been deprecated.please use init(mx.init.InitDesc(...), NDArray) instead.[0m
+  self.initializer(k, v)
+/usr/local/lib/python3.5/dist-packages/mxnet/model.py:578: DeprecationWarning: [91mCalling initializer with init(str, NDArray) has been deprecated.please use init(mx.init.InitDesc(...), NDArray) instead.[0m
+  self.initializer(k, v)
+INFO:root:Start training with [gpu(0)]
+[17:39:08] src/operator/nn/./cudnn/./cudnn_algoreg-inl.h:107: Running performance tests to find the best convolution algorithm, this can take a while... (setting env variable MXNET_CUDNN_AUTOTUNE_DEFAULT to 0 to disable)
+INFO:root:Epoch[0] Resetting Data Iterator
+INFO:root:Epoch[0] Time cost=2.456
+INFO:root:Epoch[0] Validation-CRPS=0.869434
+INFO:root:Epoch[1] Resetting Data Iterator
+INFO:root:Epoch[1] Time cost=2.116
+INFO:root:Epoch[1] Validation-CRPS=0.805557
+INFO:root:Epoch[2] Resetting Data Iterator
+INFO:root:Epoch[2] Time cost=2.088
+INFO:root:Epoch[2] Validation-CRPS=0.778171
+INFO:root:Epoch[3] Resetting Data Iterator
+INFO:root:Epoch[3] Time cost=2.040
+INFO:root:Epoch[3] Validation-CRPS=0.777515
+INFO:root:Epoch[4] Resetting Data Iterator
+INFO:root:Epoch[4] Time cost=2.075
+INFO:root:Epoch[4] Validation-CRPS=0.776831
+INFO:root:Epoch[5] Resetting Data Iterator
+INFO:root:Epoch[5] Time cost=2.067
+INFO:root:Epoch[5] Validation-CRPS=0.777287
+INFO:root:Epoch[6] Resetting Data Iterator
+INFO:root:Epoch[6] Time cost=2.068
+INFO:root:Epoch[6] Validation-CRPS=0.777485
+INFO:root:Epoch[7] Resetting Data Iterator
+INFO:root:Epoch[7] Time cost=2.072
+INFO:root:Epoch[7] Validation-CRPS=0.776809
+INFO:root:Epoch[8] Resetting Data Iterator
+INFO:root:Epoch[8] Time cost=2.092
+INFO:root:Epoch[8] Validation-CRPS=0.777237
+INFO:root:Epoch[9] Resetting Data Iterator
+INFO:root:Epoch[9] Time cost=2.060
+INFO:root:Epoch[9] Validation-CRPS=0.777488
+INFO:root:Epoch[10] Resetting Data Iterator
+INFO:root:Epoch[10] Time cost=2.123
+INFO:root:Epoch[10] Validation-CRPS=0.776797
+INFO:root:Epoch[11] Resetting Data Iterator
+INFO:root:Epoch[11] Time cost=2.056
+INFO:root:Epoch[11] Validation-CRPS=0.777247
+INFO:root:Epoch[12] Resetting Data Iterator
+INFO:root:Epoch[12] Time cost=2.074
+INFO:root:Epoch[12] Validation-CRPS=0.777530
+INFO:root:Epoch[13] Resetting Data Iterator
+INFO:root:Epoch[13] Time cost=2.013
+INFO:root:Epoch[13] Validation-CRPS=0.776805
+INFO:root:Epoch[14] Resetting Data Iterator
+INFO:root:Epoch[14] Time cost=2.109
+INFO:root:Epoch[14] Validation-CRPS=0.777266
+INFO:root:Epoch[15] Resetting Data Iterator
+INFO:root:Epoch[15] Time cost=2.005
+INFO:root:Epoch[15] Validation-CRPS=0.777527
+INFO:root:Epoch[16] Resetting Data Iterator
+INFO:root:Epoch[16] Time cost=2.024
+INFO:root:Epoch[16] Validation-CRPS=0.776840
+INFO:root:Epoch[17] Resetting Data Iterator
+INFO:root:Epoch[17] Time cost=2.034
+INFO:root:Epoch[17] Validation-CRPS=0.777273
+INFO:root:Epoch[18] Resetting Data Iterator
+INFO:root:Epoch[18] Time cost=2.077
+INFO:root:Epoch[18] Validation-CRPS=0.777533
+INFO:root:Epoch[19] Resetting Data Iterator
+INFO:root:Epoch[19] Time cost=2.085
+INFO:root:Epoch[19] Validation-CRPS=0.776809
+INFO:root:Epoch[20] Resetting Data Iterator
+INFO:root:Epoch[20] Time cost=2.078
+INFO:root:Epoch[20] Validation-CRPS=0.777287
+INFO:root:Epoch[21] Resetting Data Iterator
+INFO:root:Epoch[21] Time cost=1.983
+INFO:root:Epoch[21] Validation-CRPS=0.777551
+INFO:root:Epoch[22] Resetting Data Iterator
+INFO:root:Epoch[22] Time cost=2.038
+INFO:root:Epoch[22] Validation-CRPS=0.776822
+INFO:root:Epoch[23] Resetting Data Iterator
+INFO:root:Epoch[23] Time cost=2.060
+INFO:root:Epoch[23] Validation-CRPS=0.777254
+INFO:root:Epoch[24] Resetting Data Iterator
+INFO:root:Epoch[24] Time cost=2.129
+INFO:root:Epoch[24] Validation-CRPS=0.777514
+INFO:root:Epoch[25] Resetting Data Iterator
+INFO:root:Epoch[25] Time cost=2.120
+INFO:root:Epoch[25] Validation-CRPS=0.776830
+INFO:root:Epoch[26] Resetting Data Iterator
+INFO:root:Epoch[26] Time cost=2.112
+INFO:root:Epoch[26] Validation-CRPS=0.777269
+INFO:root:Epoch[27] Resetting Data Iterator
+INFO:root:Epoch[27] Time cost=2.096
+INFO:root:Epoch[27] Validation-CRPS=0.777520
+INFO:root:Epoch[28] Resetting Data Iterator
+INFO:root:Epoch[28] Time cost=2.076
+INFO:root:Epoch[28] Validation-CRPS=0.776843
+INFO:root:Epoch[29] Resetting Data Iterator
+INFO:root:Epoch[29] Time cost=1.971
+INFO:root:Epoch[29] Validation-CRPS=0.777273
+INFO:root:Epoch[30] Resetting Data Iterator
+INFO:root:Epoch[30] Time cost=2.081
+INFO:root:Epoch[30] Validation-CRPS=0.777531
+INFO:root:Epoch[31] Resetting Data Iterator
+INFO:root:Epoch[31] Time cost=2.092
+INFO:root:Epoch[31] Validation-CRPS=0.776854
+INFO:root:Epoch[32] Resetting Data Iterator
+INFO:root:Epoch[32] Time cost=2.063
+INFO:root:Epoch[32] Validation-CRPS=0.777291
+INFO:root:Epoch[33] Resetting Data Iterator
+INFO:root:Epoch[33] Time cost=2.060
+INFO:root:Epoch[33] Validation-CRPS=0.777540
+INFO:root:Epoch[34] Resetting Data Iterator
+INFO:root:Epoch[34] Time cost=2.085
+INFO:root:Epoch[34] Validation-CRPS=0.776856
+INFO:root:Epoch[35] Resetting Data Iterator
+INFO:root:Epoch[35] Time cost=2.083
+INFO:root:Epoch[35] Validation-CRPS=0.777288
+INFO:root:Epoch[36] Resetting Data Iterator
+INFO:root:Epoch[36] Time cost=2.027
+INFO:root:Epoch[36] Validation-CRPS=0.777554
+INFO:root:Epoch[37] Resetting Data Iterator
+INFO:root:Epoch[37] Time cost=2.089
+INFO:root:Epoch[37] Validation-CRPS=0.776861
+INFO:root:Epoch[38] Resetting Data Iterator
+INFO:root:Epoch[38] Time cost=2.060
+INFO:root:Epoch[38] Validation-CRPS=0.777290
+INFO:root:Epoch[39] Resetting Data Iterator
+INFO:root:Epoch[39] Time cost=2.014
+INFO:root:Epoch[39] Validation-CRPS=0.777535
+INFO:root:Epoch[40] Resetting Data Iterator
+INFO:root:Epoch[40] Time cost=2.031
+INFO:root:Epoch[40] Validation-CRPS=0.776846
+INFO:root:Epoch[41] Resetting Data Iterator
+INFO:root:Epoch[41] Time cost=2.065
+INFO:root:Epoch[41] Validation-CRPS=0.777282
+INFO:root:Epoch[42] Resetting Data Iterator
+INFO:root:Epoch[42] Time cost=2.129
+INFO:root:Epoch[42] Validation-CRPS=0.777527
+INFO:root:Epoch[43] Resetting Data Iterator
+INFO:root:Epoch[43] Time cost=2.070
+INFO:root:Epoch[43] Validation-CRPS=0.776851
+INFO:root:Epoch[44] Resetting Data Iterator
+INFO:root:Epoch[44] Time cost=2.068
+INFO:root:Epoch[44] Validation-CRPS=0.777301
+INFO:root:Epoch[45] Resetting Data Iterator
+INFO:root:Epoch[45] Time cost=2.070
+INFO:root:Epoch[45] Validation-CRPS=0.777534
+INFO:root:Epoch[46] Resetting Data Iterator
+INFO:root:Epoch[46] Time cost=2.049
+INFO:root:Epoch[46] Validation-CRPS=0.776852
+INFO:root:Epoch[47] Resetting Data Iterator
+INFO:root:Epoch[47] Time cost=1.977
+INFO:root:Epoch[47] Validation-CRPS=0.777307
+INFO:root:Epoch[48] Resetting Data Iterator
+INFO:root:Epoch[48] Time cost=2.031
+INFO:root:Epoch[48] Validation-CRPS=0.777559
+INFO:root:Epoch[49] Resetting Data Iterator
+INFO:root:Epoch[49] Time cost=2.086
+INFO:root:Epoch[49] Validation-CRPS=0.776873
+INFO:root:Epoch[50] Resetting Data Iterator
+INFO:root:Epoch[50] Time cost=2.089
+INFO:root:Epoch[50] Validation-CRPS=0.777331
+INFO:root:Epoch[51] Resetting Data Iterator
+INFO:root:Epoch[51] Time cost=2.063
+INFO:root:Epoch[51] Validation-CRPS=0.777531
+INFO:root:Epoch[52] Resetting Data Iterator
+INFO:root:Epoch[52] Time cost=2.078
+INFO:root:Epoch[52] Validation-CRPS=0.776889
+INFO:root:Epoch[53] Resetting Data Iterator
+INFO:root:Epoch[53] Time cost=2.078
+INFO:root:Epoch[53] Validation-CRPS=0.777350
+INFO:root:Epoch[54] Resetting Data Iterator
+INFO:root:Epoch[54] Time cost=2.075
+INFO:root:Epoch[54] Validation-CRPS=0.777546
+INFO:root:Epoch[55] Resetting Data Iterator
+INFO:root:Epoch[55] Time cost=2.020
+INFO:root:Epoch[55] Validation-CRPS=0.776856
+INFO:root:Epoch[56] Resetting Data Iterator
+INFO:root:Epoch[56] Time cost=2.018
+INFO:root:Epoch[56] Validation-CRPS=0.777298
+INFO:root:Epoch[57] Resetting Data Iterator
+INFO:root:Epoch[57] Time cost=2.034
+INFO:root:Epoch[57] Validation-CRPS=0.777558
+INFO:root:Epoch[58] Resetting Data Iterator
+INFO:root:Epoch[58] Time cost=2.151
+INFO:root:Epoch[58] Validation-CRPS=0.776859
+INFO:root:Epoch[59] Resetting Data Iterator
+INFO:root:Epoch[59] Time cost=2.041
+INFO:root:Epoch[59] Validation-CRPS=0.777313
+INFO:root:Epoch[60] Resetting Data Iterator
+INFO:root:Epoch[60] Time cost=2.034
+INFO:root:Epoch[60] Validation-CRPS=0.777579
+INFO:root:Epoch[61] Resetting Data Iterator
+INFO:root:Epoch[61] Time cost=2.075
+INFO:root:Epoch[61] Validation-CRPS=0.776856
+INFO:root:Epoch[62] Resetting Data Iterator
+INFO:root:Epoch[62] Time cost=2.061
+INFO:root:Epoch[62] Validation-CRPS=0.777310
+INFO:root:Epoch[63] Resetting Data Iterator
+INFO:root:Epoch[63] Time cost=2.047
+INFO:root:Epoch[63] Validation-CRPS=0.777575
+INFO:root:Epoch[64] Resetting Data Iterator
+INFO:root:Epoch[64] Time cost=2.096
+INFO:root:Epoch[64] Validation-CRPS=0.776897
+./src/train_linear.py:154: DeprecationWarning: [91mmxnet.model.FeedForward has been deprecated. Please use mxnet.mod.Module instead.[0m
+  momentum           = 0.9)
+INFO:root:Start training with [gpu(0)]
+INFO:root:Epoch[0] Resetting Data Iterator
+INFO:root:Epoch[0] Time cost=2.394
+INFO:root:Epoch[0] Validation-CRPS=0.708173
+INFO:root:Epoch[1] Resetting Data Iterator
+INFO:root:Epoch[1] Time cost=2.061
+INFO:root:Epoch[1] Validation-CRPS=0.662786
+INFO:root:Epoch[2] Resetting Data Iterator
+INFO:root:Epoch[2] Time cost=2.041
+INFO:root:Epoch[2] Validation-CRPS=0.643452
+INFO:root:Epoch[3] Resetting Data Iterator
+INFO:root:Epoch[3] Time cost=2.012
+INFO:root:Epoch[3] Validation-CRPS=0.643327
+INFO:root:Epoch[4] Resetting Data Iterator
+INFO:root:Epoch[4] Time cost=2.079
+INFO:root:Epoch[4] Validation-CRPS=0.642647
+INFO:root:Epoch[5] Resetting Data Iterator
+INFO:root:Epoch[5] Time cost=2.073
+INFO:root:Epoch[5] Validation-CRPS=0.642775
+INFO:root:Epoch[6] Resetting Data Iterator
+INFO:root:Epoch[6] Time cost=2.023
+INFO:root:Epoch[6] Validation-CRPS=0.643321
+INFO:root:Epoch[7] Resetting Data Iterator
+INFO:root:Epoch[7] Time cost=2.045
+INFO:root:Epoch[7] Validation-CRPS=0.642640
+INFO:root:Epoch[8] Resetting Data Iterator
+INFO:root:Epoch[8] Time cost=2.070
+INFO:root:Epoch[8] Validation-CRPS=0.642772
+INFO:root:Epoch[9] Resetting Data Iterator
+INFO:root:Epoch[9] Time cost=2.000
+INFO:root:Epoch[9] Validation-CRPS=0.643286
+INFO:root:Epoch[10] Resetting Data Iterator
+INFO:root:Epoch[10] Time cost=2.090
+INFO:root:Epoch[10] Validation-CRPS=0.642628
+INFO:root:Epoch[11] Resetting Data Iterator
+INFO:root:Epoch[11] Time cost=2.068
+INFO:root:Epoch[11] Validation-CRPS=0.642750
+INFO:root:Epoch[12] Resetting Data Iterator
+INFO:root:Epoch[12] Time cost=2.117
+INFO:root:Epoch[12] Validation-CRPS=0.643286
+INFO:root:Epoch[13] Resetting Data Iterator
+INFO:root:Epoch[13] Time cost=2.087
+INFO:root:Epoch[13] Validation-CRPS=0.642607
+INFO:root:Epoch[14] Resetting Data Iterator
+INFO:root:Epoch[14] Time cost=2.072
+INFO:root:Epoch[14] Validation-CRPS=0.642753
+INFO:root:Epoch[15] Resetting Data Iterator
+INFO:root:Epoch[15] Time cost=2.077
+INFO:root:Epoch[15] Validation-CRPS=0.643298
+INFO:root:Epoch[16] Resetting Data Iterator
+INFO:root:Epoch[16] Time cost=2.111
+INFO:root:Epoch[16] Validation-CRPS=0.642694
+INFO:root:Epoch[17] Resetting Data Iterator
+INFO:root:Epoch[17] Time cost=2.076
+INFO:root:Epoch[17] Validation-CRPS=0.642820
+INFO:root:Epoch[18] Resetting Data Iterator
+INFO:root:Epoch[18] Time cost=2.038
+INFO:root:Epoch[18] Validation-CRPS=0.643343
+INFO:root:Epoch[19] Resetting Data Iterator
+INFO:root:Epoch[19] Time cost=2.033
+INFO:root:Epoch[19] Validation-CRPS=0.642655
+INFO:root:Epoch[20] Resetting Data Iterator
+INFO:root:Epoch[20] Time cost=2.046
+INFO:root:Epoch[20] Validation-CRPS=0.642807
+INFO:root:Epoch[21] Resetting Data Iterator
+INFO:root:Epoch[21] Time cost=2.034
+INFO:root:Epoch[21] Validation-CRPS=0.643313
+INFO:root:Epoch[22] Resetting Data Iterator
+INFO:root:Epoch[22] Time cost=2.082
+INFO:root:Epoch[22] Validation-CRPS=0.642656
+INFO:root:Epoch[23] Resetting Data Iterator
+INFO:root:Epoch[23] Time cost=2.089
+INFO:root:Epoch[23] Validation-CRPS=0.642797
+INFO:root:Epoch[24] Resetting Data Iterator
+INFO:root:Epoch[24] Time cost=2.098
+INFO:root:Epoch[24] Validation-CRPS=0.643300
+INFO:root:Epoch[25] Resetting Data Iterator
+INFO:root:Epoch[25] Time cost=2.094
+INFO:root:Epoch[25] Validation-CRPS=0.642629
+INFO:root:Epoch[26] Resetting Data Iterator
+INFO:root:Epoch[26] Time cost=2.070
+INFO:root:Epoch[26] Validation-CRPS=0.642775
+INFO:root:Epoch[27] Resetting Data Iterator
+INFO:root:Epoch[27] Time cost=1.982
+INFO:root:Epoch[27] Validation-CRPS=0.643302
+INFO:root:Epoch[28] Resetting Data Iterator
+INFO:root:Epoch[28] Time cost=2.026
+INFO:root:Epoch[28] Validation-CRPS=0.642616
+INFO:root:Epoch[29] Resetting Data Iterator
+INFO:root:Epoch[29] Time cost=2.028
+INFO:root:Epoch[29] Validation-CRPS=0.642754
+INFO:root:Epoch[30] Resetting Data Iterator
+INFO:root:Epoch[30] Time cost=2.037
+INFO:root:Epoch[30] Validation-CRPS=0.643288
+INFO:root:Epoch[31] Resetting Data Iterator
+INFO:root:Epoch[31] Time cost=2.069
+INFO:root:Epoch[31] Validation-CRPS=0.642638
+INFO:root:Epoch[32] Resetting Data Iterator
+INFO:root:Epoch[32] Time cost=2.073
+INFO:root:Epoch[32] Validation-CRPS=0.642837
+INFO:root:Epoch[33] Resetting Data Iterator
+INFO:root:Epoch[33] Time cost=2.062
+INFO:root:Epoch[33] Validation-CRPS=0.643350
+INFO:root:Epoch[34] Resetting Data Iterator
+INFO:root:Epoch[34] Time cost=2.104
+INFO:root:Epoch[34] Validation-CRPS=0.642682
+INFO:root:Epoch[35] Resetting Data Iterator
+INFO:root:Epoch[35] Time cost=2.060
+INFO:root:Epoch[35] Validation-CRPS=0.642816
+INFO:root:Epoch[36] Resetting Data Iterator
+INFO:root:Epoch[36] Time cost=2.054
+INFO:root:Epoch[36] Validation-CRPS=0.643333
+INFO:root:Epoch[37] Resetting Data Iterator
+INFO:root:Epoch[37] Time cost=2.043
+INFO:root:Epoch[37] Validation-CRPS=0.642668
+INFO:root:Epoch[38] Resetting Data Iterator
+INFO:root:Epoch[38] Time cost=2.068
+INFO:root:Epoch[38] Validation-CRPS=0.642812
+INFO:root:Epoch[39] Resetting Data Iterator
+INFO:root:Epoch[39] Time cost=2.054
+INFO:root:Epoch[39] Validation-CRPS=0.643327
+INFO:root:Epoch[40] Resetting Data Iterator
+INFO:root:Epoch[40] Time cost=2.078
+INFO:root:Epoch[40] Validation-CRPS=0.642649
+INFO:root:Epoch[41] Resetting Data Iterator
+INFO:root:Epoch[41] Time cost=2.023
+INFO:root:Epoch[41] Validation-CRPS=0.642785
+INFO:root:Epoch[42] Resetting Data Iterator
+INFO:root:Epoch[42] Time cost=2.056
+INFO:root:Epoch[42] Validation-CRPS=0.643306
+INFO:root:Epoch[43] Resetting Data Iterator
+INFO:root:Epoch[43] Time cost=2.079
+INFO:root:Epoch[43] Validation-CRPS=0.642620
+INFO:root:Epoch[44] Resetting Data Iterator
+INFO:root:Epoch[44] Time cost=2.007
+INFO:root:Epoch[44] Validation-CRPS=0.642765
+INFO:root:Epoch[45] Resetting Data Iterator
+INFO:root:Epoch[45] Time cost=2.053
+INFO:root:Epoch[45] Validation-CRPS=0.643286
+INFO:root:Epoch[46] Resetting Data Iterator
+INFO:root:Epoch[46] Time cost=2.093
+INFO:root:Epoch[46] Validation-CRPS=0.642621
+INFO:root:Epoch[47] Resetting Data Iterator
+INFO:root:Epoch[47] Time cost=2.054
+INFO:root:Epoch[47] Validation-CRPS=0.642783
+INFO:root:Epoch[48] Resetting Data Iterator
+INFO:root:Epoch[48] Time cost=2.135
+INFO:root:Epoch[48] Validation-CRPS=0.643357
+INFO:root:Epoch[49] Resetting Data Iterator
+INFO:root:Epoch[49] Time cost=2.082
+INFO:root:Epoch[49] Validation-CRPS=0.642696
+INFO:root:Epoch[50] Resetting Data Iterator
+INFO:root:Epoch[50] Time cost=2.010
+INFO:root:Epoch[50] Validation-CRPS=0.642840
+INFO:root:Epoch[51] Resetting Data Iterator
+INFO:root:Epoch[51] Time cost=2.089
+INFO:root:Epoch[51] Validation-CRPS=0.643346
+INFO:root:Epoch[52] Resetting Data Iterator
+INFO:root:Epoch[52] Time cost=2.048
+INFO:root:Epoch[52] Validation-CRPS=0.642672
+INFO:root:Epoch[53] Resetting Data Iterator
+INFO:root:Epoch[53] Time cost=2.062
+INFO:root:Epoch[53] Validation-CRPS=0.642817
+INFO:root:Epoch[54] Resetting Data Iterator
+INFO:root:Epoch[54] Time cost=2.048
+INFO:root:Epoch[54] Validation-CRPS=0.643342
+INFO:root:Epoch[55] Resetting Data Iterator
+INFO:root:Epoch[55] Time cost=2.044
+INFO:root:Epoch[55] Validation-CRPS=0.642669
+INFO:root:Epoch[56] Resetting Data Iterator
+INFO:root:Epoch[56] Time cost=2.071
+INFO:root:Epoch[56] Validation-CRPS=0.642790
+INFO:root:Epoch[57] Resetting Data Iterator
+INFO:root:Epoch[57] Time cost=2.037
+INFO:root:Epoch[57] Validation-CRPS=0.643312
+INFO:root:Epoch[58] Resetting Data Iterator
+INFO:root:Epoch[58] Time cost=2.056
+INFO:root:Epoch[58] Validation-CRPS=0.642640
+INFO:root:Epoch[59] Resetting Data Iterator
+INFO:root:Epoch[59] Time cost=2.023
+INFO:root:Epoch[59] Validation-CRPS=0.642791
+INFO:root:Epoch[60] Resetting Data Iterator
+INFO:root:Epoch[60] Time cost=2.077
+INFO:root:Epoch[60] Validation-CRPS=0.643298
+INFO:root:Epoch[61] Resetting Data Iterator
+INFO:root:Epoch[61] Time cost=2.024
+INFO:root:Epoch[61] Validation-CRPS=0.642637
+INFO:root:Epoch[62] Resetting Data Iterator
+INFO:root:Epoch[62] Time cost=2.055
+INFO:root:Epoch[62] Validation-CRPS=0.642778
+INFO:root:Epoch[63] Resetting Data Iterator
+INFO:root:Epoch[63] Time cost=1.986
+INFO:root:Epoch[63] Validation-CRPS=0.643314
+INFO:root:Epoch[64] Resetting Data Iterator
+INFO:root:Epoch[64] Time cost=2.138
+INFO:root:Epoch[64] Validation-CRPS=0.642718
+Miss: 590_Diastole
+Miss: 590_Systole
+Miss: 597_Diastole
+Miss: 597_Systole
+Miss: 651_Diastole
+Miss: 651_Systole
+Miss: 652_Diastole
+Miss: 652_Systole
+Miss: 653_Diastole
+Miss: 653_Systole
+Miss: 654_Diastole
+Miss: 654_Systole
+Miss: 655_Diastole
+Miss: 655_Systole
+Miss: 656_Diastole
+Miss: 656_Systole
+Miss: 657_Diastole
+Miss: 657_Systole
+Miss: 658_Diastole
+Miss: 658_Systole
+Miss: 659_Diastole
+Miss: 659_Systole
+Miss: 660_Diastole
+Miss: 660_Systole
+Miss: 661_Diastole
+Miss: 661_Systole
+Miss: 662_Diastole
+Miss: 662_Systole
+Miss: 663_Diastole
+Miss: 663_Systole
+Miss: 664_Diastole
+Miss: 664_Systole
+Miss: 665_Diastole
+Miss: 665_Systole
+Miss: 666_Diastole
+Miss: 666_Systole
+Miss: 667_Diastole
+Miss: 667_Systole
+Miss: 668_Diastole
+Miss: 668_Systole
+Miss: 669_Diastole
+Miss: 669_Systole
+Miss: 670_Diastole
+Miss: 670_Systole
+Miss: 671_Diastole
+Miss: 671_Systole
+Miss: 672_Diastole
+Miss: 672_Systole
+Miss: 673_Diastole
+Miss: 673_Systole
+Miss: 674_Diastole
+Miss: 674_Systole
+Miss: 675_Diastole
+Miss: 675_Systole
+Miss: 676_Diastole
+Miss: 676_Systole
+Miss: 677_Diastole
+Miss: 677_Systole
+Miss: 678_Diastole
+Miss: 678_Systole
+Miss: 679_Diastole
+Miss: 679_Systole
+Miss: 680_Diastole
+Miss: 680_Systole
+Miss: 681_Diastole
+Miss: 681_Systole
+Miss: 682_Diastole
+Miss: 682_Systole
+Miss: 683_Diastole
+Miss: 683_Systole
+Miss: 684_Diastole
+Miss: 684_Systole
+Miss: 685_Diastole
+Miss: 685_Systole
+Miss: 686_Diastole
+Miss: 686_Systole
+Miss: 687_Diastole
+Miss: 687_Systole
+Miss: 688_Diastole
+Miss: 688_Systole
+Miss: 689_Diastole
+Miss: 689_Systole
+Miss: 690_Diastole
+Miss: 690_Systole
+Miss: 691_Diastole
+Miss: 691_Systole
+Miss: 692_Diastole
+Miss: 692_Systole
+Miss: 693_Diastole
+Miss: 693_Systole
+Miss: 694_Diastole
+Miss: 694_Systole
+Miss: 695_Diastole
+Miss: 695_Systole
+Miss: 696_Diastole
+Miss: 696_Systole
+Miss: 697_Diastole
+Miss: 697_Systole
+Miss: 698_Diastole
+Miss: 698_Systole
+Miss: 699_Diastole
+Miss: 699_Systole
+Miss: 700_Diastole
+Miss: 700_Systole

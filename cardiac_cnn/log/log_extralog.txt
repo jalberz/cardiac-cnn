@@ -1,0 +1,1071 @@
+train_3pool.py:116: DeprecationWarning: [91mmxnet.model.FeedForward has been deprecated. Please use mxnet.mod.Module instead.[0m
+  momentum           = 0.9)
+/usr/local/lib/python3.5/dist-packages/mxnet/model.py:572: DeprecationWarning: [91mCalling initializer with init(str, NDArray) has been deprecated.please use init(mx.init.InitDesc(...), NDArray) instead.[0m
+  self.initializer(k, v)
+/usr/local/lib/python3.5/dist-packages/mxnet/model.py:578: DeprecationWarning: [91mCalling initializer with init(str, NDArray) has been deprecated.please use init(mx.init.InitDesc(...), NDArray) instead.[0m
+  self.initializer(k, v)
+INFO:root:Start training with [gpu(0)]
+[01:59:18] src/operator/nn/./cudnn/./cudnn_algoreg-inl.h:107: Running performance tests to find the best convolution algorithm, this can take a while... (setting env variable MXNET_CUDNN_AUTOTUNE_DEFAULT to 0 to disable)
+INFO:root:Epoch[0] Resetting Data Iterator
+INFO:root:Epoch[0] Time cost=2.325
+INFO:root:Epoch[1] Resetting Data Iterator
+INFO:root:Epoch[1] Time cost=2.240
+INFO:root:Epoch[2] Resetting Data Iterator
+INFO:root:Epoch[2] Time cost=2.239
+INFO:root:Epoch[3] Resetting Data Iterator
+INFO:root:Epoch[3] Time cost=2.258
+INFO:root:Epoch[4] Resetting Data Iterator
+INFO:root:Epoch[4] Time cost=2.227
+INFO:root:Epoch[5] Resetting Data Iterator
+INFO:root:Epoch[5] Time cost=2.290
+INFO:root:Epoch[6] Resetting Data Iterator
+INFO:root:Epoch[6] Time cost=2.291
+INFO:root:Epoch[7] Resetting Data Iterator
+INFO:root:Epoch[7] Time cost=2.278
+INFO:root:Epoch[8] Resetting Data Iterator
+INFO:root:Epoch[8] Time cost=2.236
+INFO:root:Epoch[9] Resetting Data Iterator
+INFO:root:Epoch[9] Time cost=2.286
+INFO:root:Epoch[10] Resetting Data Iterator
+INFO:root:Epoch[10] Time cost=2.264
+INFO:root:Epoch[11] Resetting Data Iterator
+INFO:root:Epoch[11] Time cost=2.218
+INFO:root:Epoch[12] Resetting Data Iterator
+INFO:root:Epoch[12] Time cost=2.255
+INFO:root:Epoch[13] Resetting Data Iterator
+INFO:root:Epoch[13] Time cost=2.286
+INFO:root:Epoch[14] Resetting Data Iterator
+INFO:root:Epoch[14] Time cost=2.219
+INFO:root:Epoch[15] Resetting Data Iterator
+INFO:root:Epoch[15] Time cost=2.266
+INFO:root:Epoch[16] Resetting Data Iterator
+INFO:root:Epoch[16] Time cost=2.271
+INFO:root:Epoch[17] Resetting Data Iterator
+INFO:root:Epoch[17] Time cost=2.225
+INFO:root:Epoch[18] Resetting Data Iterator
+INFO:root:Epoch[18] Time cost=2.266
+INFO:root:Epoch[19] Resetting Data Iterator
+INFO:root:Epoch[19] Time cost=2.301
+INFO:root:Epoch[20] Resetting Data Iterator
+INFO:root:Epoch[20] Time cost=2.229
+INFO:root:Epoch[21] Resetting Data Iterator
+INFO:root:Epoch[21] Time cost=2.276
+INFO:root:Epoch[22] Resetting Data Iterator
+INFO:root:Epoch[22] Time cost=2.255
+INFO:root:Epoch[23] Resetting Data Iterator
+INFO:root:Epoch[23] Time cost=2.274
+INFO:root:Epoch[24] Resetting Data Iterator
+INFO:root:Epoch[24] Time cost=2.223
+INFO:root:Epoch[25] Resetting Data Iterator
+INFO:root:Epoch[25] Time cost=2.278
+INFO:root:Epoch[26] Resetting Data Iterator
+INFO:root:Epoch[26] Time cost=2.284
+INFO:root:Epoch[27] Resetting Data Iterator
+INFO:root:Epoch[27] Time cost=2.216
+INFO:root:Epoch[28] Resetting Data Iterator
+INFO:root:Epoch[28] Time cost=2.257
+INFO:root:Epoch[29] Resetting Data Iterator
+INFO:root:Epoch[29] Time cost=2.280
+INFO:root:Epoch[30] Resetting Data Iterator
+INFO:root:Epoch[30] Time cost=2.266
+INFO:root:Epoch[31] Resetting Data Iterator
+INFO:root:Epoch[31] Time cost=2.256
+INFO:root:Epoch[32] Resetting Data Iterator
+INFO:root:Epoch[32] Time cost=2.250
+INFO:root:Epoch[33] Resetting Data Iterator
+INFO:root:Epoch[33] Time cost=2.238
+INFO:root:Epoch[34] Resetting Data Iterator
+INFO:root:Epoch[34] Time cost=2.268
+INFO:root:Epoch[35] Resetting Data Iterator
+INFO:root:Epoch[35] Time cost=2.280
+INFO:root:Epoch[36] Resetting Data Iterator
+INFO:root:Epoch[36] Time cost=2.245
+INFO:root:Epoch[37] Resetting Data Iterator
+INFO:root:Epoch[37] Time cost=2.268
+INFO:root:Epoch[38] Resetting Data Iterator
+INFO:root:Epoch[38] Time cost=2.261
+INFO:root:Epoch[39] Resetting Data Iterator
+INFO:root:Epoch[39] Time cost=2.265
+INFO:root:Epoch[40] Resetting Data Iterator
+INFO:root:Epoch[40] Time cost=2.249
+INFO:root:Epoch[41] Resetting Data Iterator
+INFO:root:Epoch[41] Time cost=2.272
+INFO:root:Epoch[42] Resetting Data Iterator
+INFO:root:Epoch[42] Time cost=2.297
+INFO:root:Epoch[43] Resetting Data Iterator
+INFO:root:Epoch[43] Time cost=2.241
+INFO:root:Epoch[44] Resetting Data Iterator
+INFO:root:Epoch[44] Time cost=2.273
+INFO:root:Epoch[45] Resetting Data Iterator
+INFO:root:Epoch[45] Time cost=2.290
+INFO:root:Epoch[46] Resetting Data Iterator
+INFO:root:Epoch[46] Time cost=2.246
+INFO:root:Epoch[47] Resetting Data Iterator
+INFO:root:Epoch[47] Time cost=2.292
+INFO:root:Epoch[48] Resetting Data Iterator
+INFO:root:Epoch[48] Time cost=2.262
+INFO:root:Epoch[49] Resetting Data Iterator
+INFO:root:Epoch[49] Time cost=2.251
+INFO:root:Epoch[50] Resetting Data Iterator
+INFO:root:Epoch[50] Time cost=2.226
+INFO:root:Epoch[51] Resetting Data Iterator
+INFO:root:Epoch[51] Time cost=2.258
+INFO:root:Epoch[52] Resetting Data Iterator
+INFO:root:Epoch[52] Time cost=2.227
+INFO:root:Epoch[53] Resetting Data Iterator
+INFO:root:Epoch[53] Time cost=2.294
+INFO:root:Epoch[54] Resetting Data Iterator
+INFO:root:Epoch[54] Time cost=2.263
+INFO:root:Epoch[55] Resetting Data Iterator
+INFO:root:Epoch[55] Time cost=2.274
+INFO:root:Epoch[56] Resetting Data Iterator
+INFO:root:Epoch[56] Time cost=2.215
+INFO:root:Epoch[57] Resetting Data Iterator
+INFO:root:Epoch[57] Time cost=2.259
+INFO:root:Epoch[58] Resetting Data Iterator
+INFO:root:Epoch[58] Time cost=2.268
+INFO:root:Epoch[59] Resetting Data Iterator
+INFO:root:Epoch[59] Time cost=2.221
+INFO:root:Epoch[60] Resetting Data Iterator
+INFO:root:Epoch[60] Time cost=2.266
+INFO:root:Epoch[61] Resetting Data Iterator
+INFO:root:Epoch[61] Time cost=2.313
+INFO:root:Epoch[62] Resetting Data Iterator
+INFO:root:Epoch[62] Time cost=2.235
+INFO:root:Epoch[63] Resetting Data Iterator
+INFO:root:Epoch[63] Time cost=2.266
+INFO:root:Epoch[64] Resetting Data Iterator
+INFO:root:Epoch[64] Time cost=2.259
+train_3pool.py:144: DeprecationWarning: [91mmxnet.model.FeedForward has been deprecated. Please use mxnet.mod.Module instead.[0m
+  momentum           = 0.9)
+INFO:root:Start training with [gpu(0)]
+INFO:root:Epoch[0] Resetting Data Iterator
+INFO:root:Epoch[0] Time cost=2.314
+INFO:root:Epoch[1] Resetting Data Iterator
+INFO:root:Epoch[1] Time cost=2.282
+INFO:root:Epoch[2] Resetting Data Iterator
+INFO:root:Epoch[2] Time cost=2.250
+INFO:root:Epoch[3] Resetting Data Iterator
+INFO:root:Epoch[3] Time cost=2.277
+INFO:root:Epoch[4] Resetting Data Iterator
+INFO:root:Epoch[4] Time cost=2.271
+INFO:root:Epoch[5] Resetting Data Iterator
+INFO:root:Epoch[5] Time cost=2.292
+INFO:root:Epoch[6] Resetting Data Iterator
+INFO:root:Epoch[6] Time cost=2.228
+INFO:root:Epoch[7] Resetting Data Iterator
+INFO:root:Epoch[7] Time cost=2.283
+INFO:root:Epoch[8] Resetting Data Iterator
+INFO:root:Epoch[8] Time cost=2.272
+INFO:root:Epoch[9] Resetting Data Iterator
+INFO:root:Epoch[9] Time cost=2.302
+INFO:root:Epoch[10] Resetting Data Iterator
+INFO:root:Epoch[10] Time cost=2.216
+INFO:root:Epoch[11] Resetting Data Iterator
+INFO:root:Epoch[11] Time cost=2.266
+INFO:root:Epoch[12] Resetting Data Iterator
+INFO:root:Epoch[12] Time cost=2.311
+INFO:root:Epoch[13] Resetting Data Iterator
+INFO:root:Epoch[13] Time cost=2.255
+INFO:root:Epoch[14] Resetting Data Iterator
+INFO:root:Epoch[14] Time cost=2.249
+INFO:root:Epoch[15] Resetting Data Iterator
+INFO:root:Epoch[15] Time cost=2.296
+INFO:root:Epoch[16] Resetting Data Iterator
+INFO:root:Epoch[16] Time cost=2.238
+INFO:root:Epoch[17] Resetting Data Iterator
+INFO:root:Epoch[17] Time cost=2.262
+INFO:root:Epoch[18] Resetting Data Iterator
+INFO:root:Epoch[18] Time cost=2.284
+INFO:root:Epoch[19] Resetting Data Iterator
+INFO:root:Epoch[19] Time cost=2.223
+INFO:root:Epoch[20] Resetting Data Iterator
+INFO:root:Epoch[20] Time cost=2.268
+INFO:root:Epoch[21] Resetting Data Iterator
+INFO:root:Epoch[21] Time cost=2.271
+INFO:root:Epoch[22] Resetting Data Iterator
+INFO:root:Epoch[22] Time cost=2.215
+INFO:root:Epoch[23] Resetting Data Iterator
+INFO:root:Epoch[23] Time cost=2.334
+INFO:root:Epoch[24] Resetting Data Iterator
+INFO:root:Epoch[24] Time cost=2.279
+INFO:root:Epoch[25] Resetting Data Iterator
+INFO:root:Epoch[25] Time cost=2.306
+INFO:root:Epoch[26] Resetting Data Iterator
+INFO:root:Epoch[26] Time cost=2.242
+INFO:root:Epoch[27] Resetting Data Iterator
+INFO:root:Epoch[27] Time cost=2.254
+INFO:root:Epoch[28] Resetting Data Iterator
+INFO:root:Epoch[28] Time cost=2.298
+INFO:root:Epoch[29] Resetting Data Iterator
+INFO:root:Epoch[29] Time cost=2.258
+INFO:root:Epoch[30] Resetting Data Iterator
+INFO:root:Epoch[30] Time cost=2.225
+INFO:root:Epoch[31] Resetting Data Iterator
+INFO:root:Epoch[31] Time cost=2.286
+INFO:root:Epoch[32] Resetting Data Iterator
+INFO:root:Epoch[32] Time cost=2.235
+INFO:root:Epoch[33] Resetting Data Iterator
+INFO:root:Epoch[33] Time cost=2.266
+INFO:root:Epoch[34] Resetting Data Iterator
+INFO:root:Epoch[34] Time cost=2.262
+INFO:root:Epoch[35] Resetting Data Iterator
+INFO:root:Epoch[35] Time cost=2.258
+INFO:root:Epoch[36] Resetting Data Iterator
+INFO:root:Epoch[36] Time cost=2.264
+INFO:root:Epoch[37] Resetting Data Iterator
+INFO:root:Epoch[37] Time cost=2.255
+INFO:root:Epoch[38] Resetting Data Iterator
+INFO:root:Epoch[38] Time cost=2.242
+INFO:root:Epoch[39] Resetting Data Iterator
+INFO:root:Epoch[39] Time cost=2.266
+INFO:root:Epoch[40] Resetting Data Iterator
+INFO:root:Epoch[40] Time cost=2.289
+INFO:root:Epoch[41] Resetting Data Iterator
+INFO:root:Epoch[41] Time cost=2.268
+INFO:root:Epoch[42] Resetting Data Iterator
+INFO:root:Epoch[42] Time cost=2.231
+INFO:root:Epoch[43] Resetting Data Iterator
+INFO:root:Epoch[43] Time cost=2.269
+INFO:root:Epoch[44] Resetting Data Iterator
+INFO:root:Epoch[44] Time cost=2.276
+INFO:root:Epoch[45] Resetting Data Iterator
+INFO:root:Epoch[45] Time cost=2.229
+INFO:root:Epoch[46] Resetting Data Iterator
+INFO:root:Epoch[46] Time cost=2.280
+INFO:root:Epoch[47] Resetting Data Iterator
+INFO:root:Epoch[47] Time cost=2.263
+INFO:root:Epoch[48] Resetting Data Iterator
+INFO:root:Epoch[48] Time cost=2.237
+INFO:root:Epoch[49] Resetting Data Iterator
+INFO:root:Epoch[49] Time cost=2.270
+INFO:root:Epoch[50] Resetting Data Iterator
+INFO:root:Epoch[50] Time cost=2.249
+INFO:root:Epoch[51] Resetting Data Iterator
+INFO:root:Epoch[51] Time cost=2.237
+INFO:root:Epoch[52] Resetting Data Iterator
+INFO:root:Epoch[52] Time cost=2.239
+INFO:root:Epoch[53] Resetting Data Iterator
+INFO:root:Epoch[53] Time cost=2.292
+INFO:root:Epoch[54] Resetting Data Iterator
+INFO:root:Epoch[54] Time cost=2.195
+INFO:root:Epoch[55] Resetting Data Iterator
+INFO:root:Epoch[55] Time cost=2.285
+INFO:root:Epoch[56] Resetting Data Iterator
+INFO:root:Epoch[56] Time cost=2.254
+INFO:root:Epoch[57] Resetting Data Iterator
+INFO:root:Epoch[57] Time cost=2.282
+INFO:root:Epoch[58] Resetting Data Iterator
+INFO:root:Epoch[58] Time cost=2.234
+INFO:root:Epoch[59] Resetting Data Iterator
+INFO:root:Epoch[59] Time cost=2.274
+INFO:root:Epoch[60] Resetting Data Iterator
+INFO:root:Epoch[60] Time cost=2.270
+INFO:root:Epoch[61] Resetting Data Iterator
+INFO:root:Epoch[61] Time cost=2.230
+INFO:root:Epoch[62] Resetting Data Iterator
+INFO:root:Epoch[62] Time cost=2.263
+INFO:root:Epoch[63] Resetting Data Iterator
+INFO:root:Epoch[63] Time cost=2.281
+INFO:root:Epoch[64] Resetting Data Iterator
+INFO:root:Epoch[64] Time cost=2.254
+Key: 501
+Hit: 501_Diastole
+Key: 501
+Hit: 501_Systole
+Key: 502
+Hit: 502_Diastole
+Key: 502
+Hit: 502_Systole
+Key: 503
+Hit: 503_Diastole
+Key: 503
+Hit: 503_Systole
+Key: 504
+Hit: 504_Diastole
+Key: 504
+Hit: 504_Systole
+Key: 505
+Hit: 505_Diastole
+Key: 505
+Hit: 505_Systole
+Key: 506
+Hit: 506_Diastole
+Key: 506
+Hit: 506_Systole
+Key: 507
+Hit: 507_Diastole
+Key: 507
+Hit: 507_Systole
+Key: 508
+Hit: 508_Diastole
+Key: 508
+Hit: 508_Systole
+Key: 509
+Hit: 509_Diastole
+Key: 509
+Hit: 509_Systole
+Key: 510
+Hit: 510_Diastole
+Key: 510
+Hit: 510_Systole
+Key: 511
+Hit: 511_Diastole
+Key: 511
+Hit: 511_Systole
+Key: 512
+Hit: 512_Diastole
+Key: 512
+Hit: 512_Systole
+Key: 513
+Hit: 513_Diastole
+Key: 513
+Hit: 513_Systole
+Key: 514
+Hit: 514_Diastole
+Key: 514
+Hit: 514_Systole
+Key: 515
+Hit: 515_Diastole
+Key: 515
+Hit: 515_Systole
+Key: 516
+Hit: 516_Diastole
+Key: 516
+Hit: 516_Systole
+Key: 517
+Hit: 517_Diastole
+Key: 517
+Hit: 517_Systole
+Key: 518
+Hit: 518_Diastole
+Key: 518
+Hit: 518_Systole
+Key: 519
+Hit: 519_Diastole
+Key: 519
+Hit: 519_Systole
+Key: 520
+Hit: 520_Diastole
+Key: 520
+Hit: 520_Systole
+Key: 521
+Hit: 521_Diastole
+Key: 521
+Hit: 521_Systole
+Key: 522
+Hit: 522_Diastole
+Key: 522
+Hit: 522_Systole
+Key: 523
+Hit: 523_Diastole
+Key: 523
+Hit: 523_Systole
+Key: 524
+Hit: 524_Diastole
+Key: 524
+Hit: 524_Systole
+Key: 525
+Hit: 525_Diastole
+Key: 525
+Hit: 525_Systole
+Key: 526
+Hit: 526_Diastole
+Key: 526
+Hit: 526_Systole
+Key: 527
+Hit: 527_Diastole
+Key: 527
+Hit: 527_Systole
+Key: 528
+Hit: 528_Diastole
+Key: 528
+Hit: 528_Systole
+Key: 529
+Hit: 529_Diastole
+Key: 529
+Hit: 529_Systole
+Key: 530
+Hit: 530_Diastole
+Key: 530
+Hit: 530_Systole
+Key: 531
+Hit: 531_Diastole
+Key: 531
+Hit: 531_Systole
+Key: 532
+Hit: 532_Diastole
+Key: 532
+Hit: 532_Systole
+Key: 533
+Hit: 533_Diastole
+Key: 533
+Hit: 533_Systole
+Key: 534
+Hit: 534_Diastole
+Key: 534
+Hit: 534_Systole
+Key: 535
+Hit: 535_Diastole
+Key: 535
+Hit: 535_Systole
+Key: 536
+Hit: 536_Diastole
+Key: 536
+Hit: 536_Systole
+Key: 537
+Hit: 537_Diastole
+Key: 537
+Hit: 537_Systole
+Key: 538
+Hit: 538_Diastole
+Key: 538
+Hit: 538_Systole
+Key: 539
+Hit: 539_Diastole
+Key: 539
+Hit: 539_Systole
+Key: 540
+Hit: 540_Diastole
+Key: 540
+Hit: 540_Systole
+Key: 541
+Hit: 541_Diastole
+Key: 541
+Hit: 541_Systole
+Key: 542
+Hit: 542_Diastole
+Key: 542
+Hit: 542_Systole
+Key: 543
+Hit: 543_Diastole
+Key: 543
+Hit: 543_Systole
+Key: 544
+Hit: 544_Diastole
+Key: 544
+Hit: 544_Systole
+Key: 545
+Hit: 545_Diastole
+Key: 545
+Hit: 545_Systole
+Key: 546
+Hit: 546_Diastole
+Key: 546
+Hit: 546_Systole
+Key: 547
+Hit: 547_Diastole
+Key: 547
+Hit: 547_Systole
+Key: 548
+Hit: 548_Diastole
+Key: 548
+Hit: 548_Systole
+Key: 549
+Hit: 549_Diastole
+Key: 549
+Hit: 549_Systole
+Key: 550
+Hit: 550_Diastole
+Key: 550
+Hit: 550_Systole
+Key: 551
+Hit: 551_Diastole
+Key: 551
+Hit: 551_Systole
+Key: 552
+Hit: 552_Diastole
+Key: 552
+Hit: 552_Systole
+Key: 553
+Hit: 553_Diastole
+Key: 553
+Hit: 553_Systole
+Key: 554
+Hit: 554_Diastole
+Key: 554
+Hit: 554_Systole
+Key: 555
+Hit: 555_Diastole
+Key: 555
+Hit: 555_Systole
+Key: 556
+Hit: 556_Diastole
+Key: 556
+Hit: 556_Systole
+Key: 557
+Hit: 557_Diastole
+Key: 557
+Hit: 557_Systole
+Key: 558
+Hit: 558_Diastole
+Key: 558
+Hit: 558_Systole
+Key: 559
+Hit: 559_Diastole
+Key: 559
+Hit: 559_Systole
+Key: 560
+Hit: 560_Diastole
+Key: 560
+Hit: 560_Systole
+Key: 561
+Hit: 561_Diastole
+Key: 561
+Hit: 561_Systole
+Key: 562
+Hit: 562_Diastole
+Key: 562
+Hit: 562_Systole
+Key: 563
+Hit: 563_Diastole
+Key: 563
+Hit: 563_Systole
+Key: 564
+Hit: 564_Diastole
+Key: 564
+Hit: 564_Systole
+Key: 565
+Hit: 565_Diastole
+Key: 565
+Hit: 565_Systole
+Key: 566
+Hit: 566_Diastole
+Key: 566
+Hit: 566_Systole
+Key: 567
+Hit: 567_Diastole
+Key: 567
+Hit: 567_Systole
+Key: 568
+Hit: 568_Diastole
+Key: 568
+Hit: 568_Systole
+Key: 569
+Hit: 569_Diastole
+Key: 569
+Hit: 569_Systole
+Key: 570
+Hit: 570_Diastole
+Key: 570
+Hit: 570_Systole
+Key: 571
+Hit: 571_Diastole
+Key: 571
+Hit: 571_Systole
+Key: 572
+Hit: 572_Diastole
+Key: 572
+Hit: 572_Systole
+Key: 573
+Hit: 573_Diastole
+Key: 573
+Hit: 573_Systole
+Key: 574
+Hit: 574_Diastole
+Key: 574
+Hit: 574_Systole
+Key: 575
+Hit: 575_Diastole
+Key: 575
+Hit: 575_Systole
+Key: 576
+Hit: 576_Diastole
+Key: 576
+Hit: 576_Systole
+Key: 577
+Hit: 577_Diastole
+Key: 577
+Hit: 577_Systole
+Key: 578
+Hit: 578_Diastole
+Key: 578
+Hit: 578_Systole
+Key: 579
+Hit: 579_Diastole
+Key: 579
+Hit: 579_Systole
+Key: 580
+Hit: 580_Diastole
+Key: 580
+Hit: 580_Systole
+Key: 581
+Hit: 581_Diastole
+Key: 581
+Hit: 581_Systole
+Key: 582
+Hit: 582_Diastole
+Key: 582
+Hit: 582_Systole
+Key: 583
+Hit: 583_Diastole
+Key: 583
+Hit: 583_Systole
+Key: 584
+Hit: 584_Diastole
+Key: 584
+Hit: 584_Systole
+Key: 585
+Hit: 585_Diastole
+Key: 585
+Hit: 585_Systole
+Key: 586
+Hit: 586_Diastole
+Key: 586
+Hit: 586_Systole
+Key: 587
+Hit: 587_Diastole
+Key: 587
+Hit: 587_Systole
+Key: 588
+Hit: 588_Diastole
+Key: 588
+Hit: 588_Systole
+Key: 589
+Hit: 589_Diastole
+Key: 589
+Hit: 589_Systole
+Key: 590
+Miss: 590_Diastole
+Key: 590
+Miss: 590_Systole
+Key: 591
+Hit: 591_Diastole
+Key: 591
+Hit: 591_Systole
+Key: 592
+Hit: 592_Diastole
+Key: 592
+Hit: 592_Systole
+Key: 593
+Hit: 593_Diastole
+Key: 593
+Hit: 593_Systole
+Key: 594
+Hit: 594_Diastole
+Key: 594
+Hit: 594_Systole
+Key: 595
+Hit: 595_Diastole
+Key: 595
+Hit: 595_Systole
+Key: 596
+Hit: 596_Diastole
+Key: 596
+Hit: 596_Systole
+Key: 597
+Miss: 597_Diastole
+Key: 597
+Miss: 597_Systole
+Key: 598
+Hit: 598_Diastole
+Key: 598
+Hit: 598_Systole
+Key: 599
+Hit: 599_Diastole
+Key: 599
+Hit: 599_Systole
+Key: 600
+Hit: 600_Diastole
+Key: 600
+Hit: 600_Systole
+Key: 601
+Hit: 601_Diastole
+Key: 601
+Hit: 601_Systole
+Key: 602
+Hit: 602_Diastole
+Key: 602
+Hit: 602_Systole
+Key: 603
+Hit: 603_Diastole
+Key: 603
+Hit: 603_Systole
+Key: 604
+Hit: 604_Diastole
+Key: 604
+Hit: 604_Systole
+Key: 605
+Hit: 605_Diastole
+Key: 605
+Hit: 605_Systole
+Key: 606
+Hit: 606_Diastole
+Key: 606
+Hit: 606_Systole
+Key: 607
+Hit: 607_Diastole
+Key: 607
+Hit: 607_Systole
+Key: 608
+Hit: 608_Diastole
+Key: 608
+Hit: 608_Systole
+Key: 609
+Hit: 609_Diastole
+Key: 609
+Hit: 609_Systole
+Key: 610
+Hit: 610_Diastole
+Key: 610
+Hit: 610_Systole
+Key: 611
+Hit: 611_Diastole
+Key: 611
+Hit: 611_Systole
+Key: 612
+Hit: 612_Diastole
+Key: 612
+Hit: 612_Systole
+Key: 613
+Hit: 613_Diastole
+Key: 613
+Hit: 613_Systole
+Key: 614
+Hit: 614_Diastole
+Key: 614
+Hit: 614_Systole
+Key: 615
+Hit: 615_Diastole
+Key: 615
+Hit: 615_Systole
+Key: 616
+Hit: 616_Diastole
+Key: 616
+Hit: 616_Systole
+Key: 617
+Hit: 617_Diastole
+Key: 617
+Hit: 617_Systole
+Key: 618
+Hit: 618_Diastole
+Key: 618
+Hit: 618_Systole
+Key: 619
+Hit: 619_Diastole
+Key: 619
+Hit: 619_Systole
+Key: 620
+Hit: 620_Diastole
+Key: 620
+Hit: 620_Systole
+Key: 621
+Hit: 621_Diastole
+Key: 621
+Hit: 621_Systole
+Key: 622
+Hit: 622_Diastole
+Key: 622
+Hit: 622_Systole
+Key: 623
+Hit: 623_Diastole
+Key: 623
+Hit: 623_Systole
+Key: 624
+Hit: 624_Diastole
+Key: 624
+Hit: 624_Systole
+Key: 625
+Hit: 625_Diastole
+Key: 625
+Hit: 625_Systole
+Key: 626
+Hit: 626_Diastole
+Key: 626
+Hit: 626_Systole
+Key: 627
+Hit: 627_Diastole
+Key: 627
+Hit: 627_Systole
+Key: 628
+Hit: 628_Diastole
+Key: 628
+Hit: 628_Systole
+Key: 629
+Hit: 629_Diastole
+Key: 629
+Hit: 629_Systole
+Key: 630
+Hit: 630_Diastole
+Key: 630
+Hit: 630_Systole
+Key: 631
+Hit: 631_Diastole
+Key: 631
+Hit: 631_Systole
+Key: 632
+Hit: 632_Diastole
+Key: 632
+Hit: 632_Systole
+Key: 633
+Hit: 633_Diastole
+Key: 633
+Hit: 633_Systole
+Key: 634
+Hit: 634_Diastole
+Key: 634
+Hit: 634_Systole
+Key: 635
+Hit: 635_Diastole
+Key: 635
+Hit: 635_Systole
+Key: 636
+Hit: 636_Diastole
+Key: 636
+Hit: 636_Systole
+Key: 637
+Hit: 637_Diastole
+Key: 637
+Hit: 637_Systole
+Key: 638
+Hit: 638_Diastole
+Key: 638
+Hit: 638_Systole
+Key: 639
+Hit: 639_Diastole
+Key: 639
+Hit: 639_Systole
+Key: 640
+Hit: 640_Diastole
+Key: 640
+Hit: 640_Systole
+Key: 641
+Hit: 641_Diastole
+Key: 641
+Hit: 641_Systole
+Key: 642
+Hit: 642_Diastole
+Key: 642
+Hit: 642_Systole
+Key: 643
+Hit: 643_Diastole
+Key: 643
+Hit: 643_Systole
+Key: 644
+Hit: 644_Diastole
+Key: 644
+Hit: 644_Systole
+Key: 645
+Hit: 645_Diastole
+Key: 645
+Hit: 645_Systole
+Key: 646
+Hit: 646_Diastole
+Key: 646
+Hit: 646_Systole
+Key: 647
+Hit: 647_Diastole
+Key: 647
+Hit: 647_Systole
+Key: 648
+Hit: 648_Diastole
+Key: 648
+Hit: 648_Systole
+Key: 649
+Hit: 649_Diastole
+Key: 649
+Hit: 649_Systole
+Key: 650
+Hit: 650_Diastole
+Key: 650
+Hit: 650_Systole
+Key: 651
+Miss: 651_Diastole
+Key: 651
+Miss: 651_Systole
+Key: 652
+Miss: 652_Diastole
+Key: 652
+Miss: 652_Systole
+Key: 653
+Miss: 653_Diastole
+Key: 653
+Miss: 653_Systole
+Key: 654
+Miss: 654_Diastole
+Key: 654
+Miss: 654_Systole
+Key: 655
+Miss: 655_Diastole
+Key: 655
+Miss: 655_Systole
+Key: 656
+Miss: 656_Diastole
+Key: 656
+Miss: 656_Systole
+Key: 657
+Miss: 657_Diastole
+Key: 657
+Miss: 657_Systole
+Key: 658
+Miss: 658_Diastole
+Key: 658
+Miss: 658_Systole
+Key: 659
+Miss: 659_Diastole
+Key: 659
+Miss: 659_Systole
+Key: 660
+Miss: 660_Diastole
+Key: 660
+Miss: 660_Systole
+Key: 661
+Miss: 661_Diastole
+Key: 661
+Miss: 661_Systole
+Key: 662
+Miss: 662_Diastole
+Key: 662
+Miss: 662_Systole
+Key: 663
+Miss: 663_Diastole
+Key: 663
+Miss: 663_Systole
+Key: 664
+Miss: 664_Diastole
+Key: 664
+Miss: 664_Systole
+Key: 665
+Miss: 665_Diastole
+Key: 665
+Miss: 665_Systole
+Key: 666
+Miss: 666_Diastole
+Key: 666
+Miss: 666_Systole
+Key: 667
+Miss: 667_Diastole
+Key: 667
+Miss: 667_Systole
+Key: 668
+Miss: 668_Diastole
+Key: 668
+Miss: 668_Systole
+Key: 669
+Miss: 669_Diastole
+Key: 669
+Miss: 669_Systole
+Key: 670
+Miss: 670_Diastole
+Key: 670
+Miss: 670_Systole
+Key: 671
+Miss: 671_Diastole
+Key: 671
+Miss: 671_Systole
+Key: 672
+Miss: 672_Diastole
+Key: 672
+Miss: 672_Systole
+Key: 673
+Miss: 673_Diastole
+Key: 673
+Miss: 673_Systole
+Key: 674
+Miss: 674_Diastole
+Key: 674
+Miss: 674_Systole
+Key: 675
+Miss: 675_Diastole
+Key: 675
+Miss: 675_Systole
+Key: 676
+Miss: 676_Diastole
+Key: 676
+Miss: 676_Systole
+Key: 677
+Miss: 677_Diastole
+Key: 677
+Miss: 677_Systole
+Key: 678
+Miss: 678_Diastole
+Key: 678
+Miss: 678_Systole
+Key: 679
+Miss: 679_Diastole
+Key: 679
+Miss: 679_Systole
+Key: 680
+Miss: 680_Diastole
+Key: 680
+Miss: 680_Systole
+Key: 681
+Miss: 681_Diastole
+Key: 681
+Miss: 681_Systole
+Key: 682
+Miss: 682_Diastole
+Key: 682
+Miss: 682_Systole
+Key: 683
+Miss: 683_Diastole
+Key: 683
+Miss: 683_Systole
+Key: 684
+Miss: 684_Diastole
+Key: 684
+Miss: 684_Systole
+Key: 685
+Miss: 685_Diastole
+Key: 685
+Miss: 685_Systole
+Key: 686
+Miss: 686_Diastole
+Key: 686
+Miss: 686_Systole
+Key: 687
+Miss: 687_Diastole
+Key: 687
+Miss: 687_Systole
+Key: 688
+Miss: 688_Diastole
+Key: 688
+Miss: 688_Systole
+Key: 689
+Miss: 689_Diastole
+Key: 689
+Miss: 689_Systole
+Key: 690
+Miss: 690_Diastole
+Key: 690
+Miss: 690_Systole
+Key: 691
+Miss: 691_Diastole
+Key: 691
+Miss: 691_Systole
+Key: 692
+Miss: 692_Diastole
+Key: 692
+Miss: 692_Systole
+Key: 693
+Miss: 693_Diastole
+Key: 693
+Miss: 693_Systole
+Key: 694
+Miss: 694_Diastole
+Key: 694
+Miss: 694_Systole
+Key: 695
+Miss: 695_Diastole
+Key: 695
+Miss: 695_Systole
+Key: 696
+Miss: 696_Diastole
+Key: 696
+Miss: 696_Systole
+Key: 697
+Miss: 697_Diastole
+Key: 697
+Miss: 697_Systole
+Key: 698
+Miss: 698_Diastole
+Key: 698
+Miss: 698_Systole
+Key: 699
+Miss: 699_Diastole
+Key: 699
+Miss: 699_Systole
+Key: 700
+Miss: 700_Diastole
+Key: 700
+Miss: 700_Systole

@@ -1,0 +1,1302 @@
+  File "train_updated.py", line 1
+    censed to the Apache Software Foundation (ASF) under one
+            ^
+SyntaxError: invalid syntax
+Traceback (most recent call last):
+  File "train_updated.py", line 108, in <module>
+    data_test = mx.io.CSVIter(data_csv="./local_test-64x64-data.csv", data_shape=(30, 64, 64), label_csv="./test-systole.csv", label_shape=(600,), batch_size=batch_size) 
+  File "/usr/local/lib/python3.5/dist-packages/mxnet/io.py", line 936, in creator
+    ctypes.byref(iter_handle)))
+  File "/usr/local/lib/python3.5/dist-packages/mxnet/base.py", line 149, in check_call
+    raise MXNetError(py_str(_LIB.MXGetLastError()))
+mxnet.base.MXNetError: [20:45:09] src/io/input_split_base.cc:173: Check failed: files_.size() != 0U (0 vs. 0) Cannot find any files that matches the URI pattern ./test-systole.csv
+
+Stack trace returned 10 entries:
+[bt] (0) /usr/local/lib/python3.5/dist-packages/mxnet/libmxnet.so(+0x31f81a) [0x7fa4f7e7a81a]
+[bt] (1) /usr/local/lib/python3.5/dist-packages/mxnet/libmxnet.so(+0x31fe41) [0x7fa4f7e7ae41]
+[bt] (2) /usr/local/lib/python3.5/dist-packages/mxnet/libmxnet.so(+0x2a6159f) [0x7fa4fa5bc59f]
+[bt] (3) /usr/local/lib/python3.5/dist-packages/mxnet/libmxnet.so(+0x2a61a57) [0x7fa4fa5bca57]
+[bt] (4) /usr/local/lib/python3.5/dist-packages/mxnet/libmxnet.so(+0x2a24cb6) [0x7fa4fa57fcb6]
+[bt] (5) /usr/local/lib/python3.5/dist-packages/mxnet/libmxnet.so(+0x2a250bd) [0x7fa4fa5800bd]
+[bt] (6) /usr/local/lib/python3.5/dist-packages/mxnet/libmxnet.so(+0x2a3351a) [0x7fa4fa58e51a]
+[bt] (7) /usr/local/lib/python3.5/dist-packages/mxnet/libmxnet.so(+0x2a2dcd0) [0x7fa4fa588cd0]
+[bt] (8) /usr/local/lib/python3.5/dist-packages/mxnet/libmxnet.so(+0x2549223) [0x7fa4fa0a4223]
+[bt] (9) /usr/local/lib/python3.5/dist-packages/mxnet/libmxnet.so(+0x2548f3f) [0x7fa4fa0a3f3f]
+
+
+train_updated.py:118: DeprecationWarning: [91mmxnet.model.FeedForward has been deprecated. Please use mxnet.mod.Module instead.[0m
+  momentum           = 0.9)
+Traceback (most recent call last):
+  File "train_updated.py", line 123, in <module>
+    diastole_model.fit(X=data_train, eval_data=(data_test), eval_metric = mx.metric.np(CRPS))
+NameError: name 'diastole_model' is not defined
+train_updated.py:118: DeprecationWarning: [91mmxnet.model.FeedForward has been deprecated. Please use mxnet.mod.Module instead.[0m
+  momentum           = 0.9)
+/usr/local/lib/python3.5/dist-packages/mxnet/model.py:572: DeprecationWarning: [91mCalling initializer with init(str, NDArray) has been deprecated.please use init(mx.init.InitDesc(...), NDArray) instead.[0m
+  self.initializer(k, v)
+/usr/local/lib/python3.5/dist-packages/mxnet/model.py:578: DeprecationWarning: [91mCalling initializer with init(str, NDArray) has been deprecated.please use init(mx.init.InitDesc(...), NDArray) instead.[0m
+  self.initializer(k, v)
+INFO:root:Start training with [gpu(0)]
+[20:54:10] src/operator/nn/./cudnn/./cudnn_algoreg-inl.h:107: Running performance tests to find the best convolution algorithm, this can take a while... (setting env variable MXNET_CUDNN_AUTOTUNE_DEFAULT to 0 to disable)
+INFO:root:Epoch[0] Resetting Data Iterator
+INFO:root:Epoch[0] Time cost=1.671
+INFO:root:Epoch[0] Validation-CRPS=0.235053
+INFO:root:Epoch[1] Resetting Data Iterator
+INFO:root:Epoch[1] Time cost=1.511
+INFO:root:Epoch[1] Validation-CRPS=0.153129
+INFO:root:Epoch[2] Resetting Data Iterator
+INFO:root:Epoch[2] Time cost=1.463
+INFO:root:Epoch[2] Validation-CRPS=0.121744
+INFO:root:Epoch[3] Resetting Data Iterator
+INFO:root:Epoch[3] Time cost=1.459
+INFO:root:Epoch[3] Validation-CRPS=0.108908
+INFO:root:Epoch[4] Resetting Data Iterator
+INFO:root:Epoch[4] Time cost=1.470
+INFO:root:Epoch[4] Validation-CRPS=0.096513
+INFO:root:Epoch[5] Resetting Data Iterator
+INFO:root:Epoch[5] Time cost=1.473
+INFO:root:Epoch[5] Validation-CRPS=0.083475
+INFO:root:Epoch[6] Resetting Data Iterator
+INFO:root:Epoch[6] Time cost=1.480
+INFO:root:Epoch[6] Validation-CRPS=0.073397
+INFO:root:Epoch[7] Resetting Data Iterator
+INFO:root:Epoch[7] Time cost=1.427
+INFO:root:Epoch[7] Validation-CRPS=0.066852
+INFO:root:Epoch[8] Resetting Data Iterator
+INFO:root:Epoch[8] Time cost=1.457
+INFO:root:Epoch[8] Validation-CRPS=0.061973
+INFO:root:Epoch[9] Resetting Data Iterator
+INFO:root:Epoch[9] Time cost=1.438
+INFO:root:Epoch[9] Validation-CRPS=0.057563
+INFO:root:Epoch[10] Resetting Data Iterator
+INFO:root:Epoch[10] Time cost=1.511
+INFO:root:Epoch[10] Validation-CRPS=0.054530
+INFO:root:Epoch[11] Resetting Data Iterator
+INFO:root:Epoch[11] Time cost=1.423
+INFO:root:Epoch[11] Validation-CRPS=0.051409
+INFO:root:Epoch[12] Resetting Data Iterator
+INFO:root:Epoch[12] Time cost=1.420
+INFO:root:Epoch[12] Validation-CRPS=0.049399
+INFO:root:Epoch[13] Resetting Data Iterator
+INFO:root:Epoch[13] Time cost=1.462
+INFO:root:Epoch[13] Validation-CRPS=0.047330
+INFO:root:Epoch[14] Resetting Data Iterator
+INFO:root:Epoch[14] Time cost=1.444
+INFO:root:Epoch[14] Validation-CRPS=0.046175
+INFO:root:Epoch[15] Resetting Data Iterator
+INFO:root:Epoch[15] Time cost=1.433
+INFO:root:Epoch[15] Validation-CRPS=0.045421
+INFO:root:Epoch[16] Resetting Data Iterator
+INFO:root:Epoch[16] Time cost=1.443
+INFO:root:Epoch[16] Validation-CRPS=0.043591
+INFO:root:Epoch[17] Resetting Data Iterator
+INFO:root:Epoch[17] Time cost=1.421
+INFO:root:Epoch[17] Validation-CRPS=0.042248
+INFO:root:Epoch[18] Resetting Data Iterator
+INFO:root:Epoch[18] Time cost=1.417
+INFO:root:Epoch[18] Validation-CRPS=0.041934
+INFO:root:Epoch[19] Resetting Data Iterator
+INFO:root:Epoch[19] Time cost=1.437
+INFO:root:Epoch[19] Validation-CRPS=0.040909
+INFO:root:Epoch[20] Resetting Data Iterator
+INFO:root:Epoch[20] Time cost=1.448
+INFO:root:Epoch[20] Validation-CRPS=0.039544
+INFO:root:Epoch[21] Resetting Data Iterator
+INFO:root:Epoch[21] Time cost=1.420
+INFO:root:Epoch[21] Validation-CRPS=0.039503
+INFO:root:Epoch[22] Resetting Data Iterator
+INFO:root:Epoch[22] Time cost=1.446
+INFO:root:Epoch[22] Validation-CRPS=0.039458
+INFO:root:Epoch[23] Resetting Data Iterator
+INFO:root:Epoch[23] Time cost=1.451
+INFO:root:Epoch[23] Validation-CRPS=0.038703
+INFO:root:Epoch[24] Resetting Data Iterator
+INFO:root:Epoch[24] Time cost=1.440
+INFO:root:Epoch[24] Validation-CRPS=0.038348
+INFO:root:Epoch[25] Resetting Data Iterator
+INFO:root:Epoch[25] Time cost=1.490
+INFO:root:Epoch[25] Validation-CRPS=0.038279
+INFO:root:Epoch[26] Resetting Data Iterator
+INFO:root:Epoch[26] Time cost=1.462
+INFO:root:Epoch[26] Validation-CRPS=0.038042
+INFO:root:Epoch[27] Resetting Data Iterator
+INFO:root:Epoch[27] Time cost=1.456
+INFO:root:Epoch[27] Validation-CRPS=0.038099
+INFO:root:Epoch[28] Resetting Data Iterator
+INFO:root:Epoch[28] Time cost=1.478
+INFO:root:Epoch[28] Validation-CRPS=0.037332
+INFO:root:Epoch[29] Resetting Data Iterator
+INFO:root:Epoch[29] Time cost=1.439
+INFO:root:Epoch[29] Validation-CRPS=0.036891
+INFO:root:Epoch[30] Resetting Data Iterator
+INFO:root:Epoch[30] Time cost=1.452
+INFO:root:Epoch[30] Validation-CRPS=0.037250
+INFO:root:Epoch[31] Resetting Data Iterator
+INFO:root:Epoch[31] Time cost=1.424
+INFO:root:Epoch[31] Validation-CRPS=0.037321
+INFO:root:Epoch[32] Resetting Data Iterator
+INFO:root:Epoch[32] Time cost=1.403
+INFO:root:Epoch[32] Validation-CRPS=0.036573
+INFO:root:Epoch[33] Resetting Data Iterator
+INFO:root:Epoch[33] Time cost=1.418
+INFO:root:Epoch[33] Validation-CRPS=0.036797
+INFO:root:Epoch[34] Resetting Data Iterator
+INFO:root:Epoch[34] Time cost=1.494
+INFO:root:Epoch[34] Validation-CRPS=0.036763
+INFO:root:Epoch[35] Resetting Data Iterator
+INFO:root:Epoch[35] Time cost=1.404
+INFO:root:Epoch[35] Validation-CRPS=0.036307
+INFO:root:Epoch[36] Resetting Data Iterator
+INFO:root:Epoch[36] Time cost=1.488
+INFO:root:Epoch[36] Validation-CRPS=0.036382
+INFO:root:Epoch[37] Resetting Data Iterator
+INFO:root:Epoch[37] Time cost=1.484
+INFO:root:Epoch[37] Validation-CRPS=0.036316
+INFO:root:Epoch[38] Resetting Data Iterator
+INFO:root:Epoch[38] Time cost=1.450
+INFO:root:Epoch[38] Validation-CRPS=0.036236
+INFO:root:Epoch[39] Resetting Data Iterator
+INFO:root:Epoch[39] Time cost=1.427
+INFO:root:Epoch[39] Validation-CRPS=0.036398
+INFO:root:Epoch[40] Resetting Data Iterator
+INFO:root:Epoch[40] Time cost=1.482
+INFO:root:Epoch[40] Validation-CRPS=0.036035
+INFO:root:Epoch[41] Resetting Data Iterator
+INFO:root:Epoch[41] Time cost=1.506
+INFO:root:Epoch[41] Validation-CRPS=0.035768
+INFO:root:Epoch[42] Resetting Data Iterator
+INFO:root:Epoch[42] Time cost=1.477
+INFO:root:Epoch[42] Validation-CRPS=0.036178
+INFO:root:Epoch[43] Resetting Data Iterator
+INFO:root:Epoch[43] Time cost=1.463
+INFO:root:Epoch[43] Validation-CRPS=0.036132
+INFO:root:Epoch[44] Resetting Data Iterator
+INFO:root:Epoch[44] Time cost=1.436
+INFO:root:Epoch[44] Validation-CRPS=0.035776
+INFO:root:Epoch[45] Resetting Data Iterator
+INFO:root:Epoch[45] Time cost=1.408
+INFO:root:Epoch[45] Validation-CRPS=0.035965
+INFO:root:Epoch[46] Resetting Data Iterator
+INFO:root:Epoch[46] Time cost=1.427
+INFO:root:Epoch[46] Validation-CRPS=0.035897
+INFO:root:Epoch[47] Resetting Data Iterator
+INFO:root:Epoch[47] Time cost=1.433
+INFO:root:Epoch[47] Validation-CRPS=0.035808
+INFO:root:Epoch[48] Resetting Data Iterator
+INFO:root:Epoch[48] Time cost=1.438
+INFO:root:Epoch[48] Validation-CRPS=0.036019
+INFO:root:Epoch[49] Resetting Data Iterator
+INFO:root:Epoch[49] Time cost=1.480
+INFO:root:Epoch[49] Validation-CRPS=0.035774
+INFO:root:Epoch[50] Resetting Data Iterator
+INFO:root:Epoch[50] Time cost=1.449
+INFO:root:Epoch[50] Validation-CRPS=0.035709
+INFO:root:Epoch[51] Resetting Data Iterator
+INFO:root:Epoch[51] Time cost=1.462
+INFO:root:Epoch[51] Validation-CRPS=0.035804
+INFO:root:Epoch[52] Resetting Data Iterator
+INFO:root:Epoch[52] Time cost=1.503
+INFO:root:Epoch[52] Validation-CRPS=0.035763
+INFO:root:Epoch[53] Resetting Data Iterator
+INFO:root:Epoch[53] Time cost=1.432
+INFO:root:Epoch[53] Validation-CRPS=0.035376
+INFO:root:Epoch[54] Resetting Data Iterator
+INFO:root:Epoch[54] Time cost=1.457
+INFO:root:Epoch[54] Validation-CRPS=0.035839
+INFO:root:Epoch[55] Resetting Data Iterator
+INFO:root:Epoch[55] Time cost=1.460
+INFO:root:Epoch[55] Validation-CRPS=0.035685
+INFO:root:Epoch[56] Resetting Data Iterator
+INFO:root:Epoch[56] Time cost=1.441
+INFO:root:Epoch[56] Validation-CRPS=0.035384
+INFO:root:Epoch[57] Resetting Data Iterator
+INFO:root:Epoch[57] Time cost=1.448
+INFO:root:Epoch[57] Validation-CRPS=0.035591
+INFO:root:Epoch[58] Resetting Data Iterator
+INFO:root:Epoch[58] Time cost=1.489
+INFO:root:Epoch[58] Validation-CRPS=0.035561
+INFO:root:Epoch[59] Resetting Data Iterator
+INFO:root:Epoch[59] Time cost=1.443
+INFO:root:Epoch[59] Validation-CRPS=0.035419
+INFO:root:Epoch[60] Resetting Data Iterator
+INFO:root:Epoch[60] Time cost=1.457
+INFO:root:Epoch[60] Validation-CRPS=0.035720
+INFO:root:Epoch[61] Resetting Data Iterator
+INFO:root:Epoch[61] Time cost=1.484
+INFO:root:Epoch[61] Validation-CRPS=0.035409
+INFO:root:Epoch[62] Resetting Data Iterator
+INFO:root:Epoch[62] Time cost=1.446
+INFO:root:Epoch[62] Validation-CRPS=0.035385
+INFO:root:Epoch[63] Resetting Data Iterator
+INFO:root:Epoch[63] Time cost=1.448
+INFO:root:Epoch[63] Validation-CRPS=0.035697
+INFO:root:Epoch[64] Resetting Data Iterator
+INFO:root:Epoch[64] Time cost=1.434
+INFO:root:Epoch[64] Validation-CRPS=0.035451
+train_updated.py:152: DeprecationWarning: [91mmxnet.model.FeedForward has been deprecated. Please use mxnet.mod.Module instead.[0m
+  momentum           = 0.9)
+INFO:root:Start training with [gpu(0)]
+INFO:root:Epoch[0] Resetting Data Iterator
+INFO:root:Epoch[0] Time cost=1.902
+INFO:root:Epoch[0] Validation-CRPS=0.241746
+INFO:root:Epoch[1] Resetting Data Iterator
+INFO:root:Epoch[1] Time cost=1.451
+INFO:root:Epoch[1] Validation-CRPS=0.197673
+INFO:root:Epoch[2] Resetting Data Iterator
+INFO:root:Epoch[2] Time cost=1.408
+INFO:root:Epoch[2] Validation-CRPS=0.169078
+INFO:root:Epoch[3] Resetting Data Iterator
+INFO:root:Epoch[3] Time cost=1.389
+INFO:root:Epoch[3] Validation-CRPS=0.152513
+INFO:root:Epoch[4] Resetting Data Iterator
+INFO:root:Epoch[4] Time cost=1.434
+INFO:root:Epoch[4] Validation-CRPS=0.138018
+INFO:root:Epoch[5] Resetting Data Iterator
+INFO:root:Epoch[5] Time cost=1.396
+INFO:root:Epoch[5] Validation-CRPS=0.126164
+INFO:root:Epoch[6] Resetting Data Iterator
+INFO:root:Epoch[6] Time cost=1.445
+INFO:root:Epoch[6] Validation-CRPS=0.113157
+INFO:root:Epoch[7] Resetting Data Iterator
+INFO:root:Epoch[7] Time cost=1.422
+INFO:root:Epoch[7] Validation-CRPS=0.102904
+INFO:root:Epoch[8] Resetting Data Iterator
+INFO:root:Epoch[8] Time cost=1.404
+INFO:root:Epoch[8] Validation-CRPS=0.093378
+INFO:root:Epoch[9] Resetting Data Iterator
+INFO:root:Epoch[9] Time cost=1.405
+INFO:root:Epoch[9] Validation-CRPS=0.086849
+INFO:root:Epoch[10] Resetting Data Iterator
+INFO:root:Epoch[10] Time cost=1.477
+INFO:root:Epoch[10] Validation-CRPS=0.082227
+INFO:root:Epoch[11] Resetting Data Iterator
+INFO:root:Epoch[11] Time cost=1.408
+INFO:root:Epoch[11] Validation-CRPS=0.077928
+INFO:root:Epoch[12] Resetting Data Iterator
+INFO:root:Epoch[12] Time cost=1.443
+INFO:root:Epoch[12] Validation-CRPS=0.073634
+INFO:root:Epoch[13] Resetting Data Iterator
+INFO:root:Epoch[13] Time cost=1.407
+INFO:root:Epoch[13] Validation-CRPS=0.071088
+INFO:root:Epoch[14] Resetting Data Iterator
+INFO:root:Epoch[14] Time cost=1.405
+INFO:root:Epoch[14] Validation-CRPS=0.068984
+INFO:root:Epoch[15] Resetting Data Iterator
+INFO:root:Epoch[15] Time cost=1.394
+INFO:root:Epoch[15] Validation-CRPS=0.067489
+INFO:root:Epoch[16] Resetting Data Iterator
+INFO:root:Epoch[16] Time cost=1.419
+INFO:root:Epoch[16] Validation-CRPS=0.064864
+INFO:root:Epoch[17] Resetting Data Iterator
+INFO:root:Epoch[17] Time cost=1.362
+INFO:root:Epoch[17] Validation-CRPS=0.063410
+INFO:root:Epoch[18] Resetting Data Iterator
+INFO:root:Epoch[18] Time cost=1.383
+INFO:root:Epoch[18] Validation-CRPS=0.063213
+INFO:root:Epoch[19] Resetting Data Iterator
+INFO:root:Epoch[19] Time cost=1.402
+INFO:root:Epoch[19] Validation-CRPS=0.062277
+INFO:root:Epoch[20] Resetting Data Iterator
+INFO:root:Epoch[20] Time cost=1.430
+INFO:root:Epoch[20] Validation-CRPS=0.060283
+INFO:root:Epoch[21] Resetting Data Iterator
+INFO:root:Epoch[21] Time cost=1.407
+INFO:root:Epoch[21] Validation-CRPS=0.060372
+INFO:root:Epoch[22] Resetting Data Iterator
+INFO:root:Epoch[22] Time cost=1.393
+INFO:root:Epoch[22] Validation-CRPS=0.059940
+INFO:root:Epoch[23] Resetting Data Iterator
+INFO:root:Epoch[23] Time cost=1.377
+INFO:root:Epoch[23] Validation-CRPS=0.059085
+INFO:root:Epoch[24] Resetting Data Iterator
+INFO:root:Epoch[24] Time cost=1.387
+INFO:root:Epoch[24] Validation-CRPS=0.058684
+INFO:root:Epoch[25] Resetting Data Iterator
+INFO:root:Epoch[25] Time cost=1.380
+INFO:root:Epoch[25] Validation-CRPS=0.058461
+INFO:root:Epoch[26] Resetting Data Iterator
+INFO:root:Epoch[26] Time cost=1.433
+INFO:root:Epoch[26] Validation-CRPS=0.058155
+INFO:root:Epoch[27] Resetting Data Iterator
+INFO:root:Epoch[27] Time cost=1.418
+INFO:root:Epoch[27] Validation-CRPS=0.058224
+INFO:root:Epoch[28] Resetting Data Iterator
+INFO:root:Epoch[28] Time cost=1.401
+INFO:root:Epoch[28] Validation-CRPS=0.057268
+INFO:root:Epoch[29] Resetting Data Iterator
+INFO:root:Epoch[29] Time cost=1.407
+INFO:root:Epoch[29] Validation-CRPS=0.057292
+INFO:root:Epoch[30] Resetting Data Iterator
+INFO:root:Epoch[30] Time cost=1.400
+INFO:root:Epoch[30] Validation-CRPS=0.057554
+INFO:root:Epoch[31] Resetting Data Iterator
+INFO:root:Epoch[31] Time cost=1.395
+INFO:root:Epoch[31] Validation-CRPS=0.057089
+INFO:root:Epoch[32] Resetting Data Iterator
+INFO:root:Epoch[32] Time cost=1.365
+INFO:root:Epoch[32] Validation-CRPS=0.056255
+INFO:root:Epoch[33] Resetting Data Iterator
+INFO:root:Epoch[33] Time cost=1.364
+INFO:root:Epoch[33] Validation-CRPS=0.056805
+INFO:root:Epoch[34] Resetting Data Iterator
+INFO:root:Epoch[34] Time cost=1.423
+INFO:root:Epoch[34] Validation-CRPS=0.056564
+INFO:root:Epoch[35] Resetting Data Iterator
+INFO:root:Epoch[35] Time cost=1.387
+INFO:root:Epoch[35] Validation-CRPS=0.056417
+INFO:root:Epoch[36] Resetting Data Iterator
+INFO:root:Epoch[36] Time cost=1.405
+INFO:root:Epoch[36] Validation-CRPS=0.056155
+INFO:root:Epoch[37] Resetting Data Iterator
+INFO:root:Epoch[37] Time cost=1.395
+INFO:root:Epoch[37] Validation-CRPS=0.056089
+INFO:root:Epoch[38] Resetting Data Iterator
+INFO:root:Epoch[38] Time cost=1.352
+INFO:root:Epoch[38] Validation-CRPS=0.055923
+INFO:root:Epoch[39] Resetting Data Iterator
+INFO:root:Epoch[39] Time cost=1.409
+INFO:root:Epoch[39] Validation-CRPS=0.056357
+INFO:root:Epoch[40] Resetting Data Iterator
+INFO:root:Epoch[40] Time cost=1.390
+INFO:root:Epoch[40] Validation-CRPS=0.055549
+INFO:root:Epoch[41] Resetting Data Iterator
+INFO:root:Epoch[41] Time cost=1.371
+INFO:root:Epoch[41] Validation-CRPS=0.055793
+INFO:root:Epoch[42] Resetting Data Iterator
+INFO:root:Epoch[42] Time cost=1.446
+INFO:root:Epoch[42] Validation-CRPS=0.056131
+INFO:root:Epoch[43] Resetting Data Iterator
+INFO:root:Epoch[43] Time cost=1.432
+INFO:root:Epoch[43] Validation-CRPS=0.055957
+INFO:root:Epoch[44] Resetting Data Iterator
+INFO:root:Epoch[44] Time cost=1.430
+INFO:root:Epoch[44] Validation-CRPS=0.055391
+INFO:root:Epoch[45] Resetting Data Iterator
+INFO:root:Epoch[45] Time cost=1.401
+INFO:root:Epoch[45] Validation-CRPS=0.056031
+INFO:root:Epoch[46] Resetting Data Iterator
+INFO:root:Epoch[46] Time cost=1.381
+INFO:root:Epoch[46] Validation-CRPS=0.055811
+INFO:root:Epoch[47] Resetting Data Iterator
+INFO:root:Epoch[47] Time cost=1.361
+INFO:root:Epoch[47] Validation-CRPS=0.055642
+INFO:root:Epoch[48] Resetting Data Iterator
+INFO:root:Epoch[48] Time cost=1.386
+INFO:root:Epoch[48] Validation-CRPS=0.055595
+INFO:root:Epoch[49] Resetting Data Iterator
+INFO:root:Epoch[49] Time cost=1.382
+INFO:root:Epoch[49] Validation-CRPS=0.055406
+INFO:root:Epoch[50] Resetting Data Iterator
+INFO:root:Epoch[50] Time cost=1.367
+INFO:root:Epoch[50] Validation-CRPS=0.055399
+INFO:root:Epoch[51] Resetting Data Iterator
+INFO:root:Epoch[51] Time cost=1.389
+INFO:root:Epoch[51] Validation-CRPS=0.055967
+INFO:root:Epoch[52] Resetting Data Iterator
+INFO:root:Epoch[52] Time cost=1.400
+INFO:root:Epoch[52] Validation-CRPS=0.055105
+INFO:root:Epoch[53] Resetting Data Iterator
+INFO:root:Epoch[53] Time cost=1.400
+INFO:root:Epoch[53] Validation-CRPS=0.055241
+INFO:root:Epoch[54] Resetting Data Iterator
+INFO:root:Epoch[54] Time cost=1.382
+INFO:root:Epoch[54] Validation-CRPS=0.055625
+INFO:root:Epoch[55] Resetting Data Iterator
+INFO:root:Epoch[55] Time cost=1.391
+INFO:root:Epoch[55] Validation-CRPS=0.055544
+INFO:root:Epoch[56] Resetting Data Iterator
+INFO:root:Epoch[56] Time cost=1.364
+INFO:root:Epoch[56] Validation-CRPS=0.054992
+INFO:root:Epoch[57] Resetting Data Iterator
+INFO:root:Epoch[57] Time cost=1.354
+INFO:root:Epoch[57] Validation-CRPS=0.055637
+INFO:root:Epoch[58] Resetting Data Iterator
+INFO:root:Epoch[58] Time cost=1.440
+INFO:root:Epoch[58] Validation-CRPS=0.055405
+INFO:root:Epoch[59] Resetting Data Iterator
+INFO:root:Epoch[59] Time cost=1.424
+INFO:root:Epoch[59] Validation-CRPS=0.055352
+INFO:root:Epoch[60] Resetting Data Iterator
+INFO:root:Epoch[60] Time cost=1.401
+INFO:root:Epoch[60] Validation-CRPS=0.055394
+INFO:root:Epoch[61] Resetting Data Iterator
+INFO:root:Epoch[61] Time cost=1.395
+INFO:root:Epoch[61] Validation-CRPS=0.055172
+INFO:root:Epoch[62] Resetting Data Iterator
+INFO:root:Epoch[62] Time cost=1.402
+INFO:root:Epoch[62] Validation-CRPS=0.055148
+INFO:root:Epoch[63] Resetting Data Iterator
+INFO:root:Epoch[63] Time cost=1.398
+INFO:root:Epoch[63] Validation-CRPS=0.055868
+INFO:root:Epoch[64] Resetting Data Iterator
+INFO:root:Epoch[64] Time cost=1.438
+INFO:root:Epoch[64] Validation-CRPS=0.054914
+Miss: 590_Diastole
+Miss: 590_Systole
+Miss: 597_Diastole
+Miss: 597_Systole
+Miss: 651_Diastole
+Miss: 651_Systole
+Miss: 652_Diastole
+Miss: 652_Systole
+Miss: 653_Diastole
+Miss: 653_Systole
+Miss: 654_Diastole
+Miss: 654_Systole
+Miss: 655_Diastole
+Miss: 655_Systole
+Miss: 656_Diastole
+Miss: 656_Systole
+Miss: 657_Diastole
+Miss: 657_Systole
+Miss: 658_Diastole
+Miss: 658_Systole
+Miss: 659_Diastole
+Miss: 659_Systole
+Miss: 660_Diastole
+Miss: 660_Systole
+Miss: 661_Diastole
+Miss: 661_Systole
+Miss: 662_Diastole
+Miss: 662_Systole
+Miss: 663_Diastole
+Miss: 663_Systole
+Miss: 664_Diastole
+Miss: 664_Systole
+Miss: 665_Diastole
+Miss: 665_Systole
+Miss: 666_Diastole
+Miss: 666_Systole
+Miss: 667_Diastole
+Miss: 667_Systole
+Miss: 668_Diastole
+Miss: 668_Systole
+Miss: 669_Diastole
+Miss: 669_Systole
+Miss: 670_Diastole
+Miss: 670_Systole
+Miss: 671_Diastole
+Miss: 671_Systole
+Miss: 672_Diastole
+Miss: 672_Systole
+Miss: 673_Diastole
+Miss: 673_Systole
+Miss: 674_Diastole
+Miss: 674_Systole
+Miss: 675_Diastole
+Miss: 675_Systole
+Miss: 676_Diastole
+Miss: 676_Systole
+Miss: 677_Diastole
+Miss: 677_Systole
+Miss: 678_Diastole
+Miss: 678_Systole
+Miss: 679_Diastole
+Miss: 679_Systole
+Miss: 680_Diastole
+Miss: 680_Systole
+Miss: 681_Diastole
+Miss: 681_Systole
+Miss: 682_Diastole
+Miss: 682_Systole
+Miss: 683_Diastole
+Miss: 683_Systole
+Miss: 684_Diastole
+Miss: 684_Systole
+Miss: 685_Diastole
+Miss: 685_Systole
+Miss: 686_Diastole
+Miss: 686_Systole
+Miss: 687_Diastole
+Miss: 687_Systole
+Miss: 688_Diastole
+Miss: 688_Systole
+Miss: 689_Diastole
+Miss: 689_Systole
+Miss: 690_Diastole
+Miss: 690_Systole
+Miss: 691_Diastole
+Miss: 691_Systole
+Miss: 692_Diastole
+Miss: 692_Systole
+Miss: 693_Diastole
+Miss: 693_Systole
+Miss: 694_Diastole
+Miss: 694_Systole
+Miss: 695_Diastole
+Miss: 695_Systole
+Miss: 696_Diastole
+Miss: 696_Systole
+Miss: 697_Diastole
+Miss: 697_Systole
+Miss: 698_Diastole
+Miss: 698_Systole
+Miss: 699_Diastole
+Miss: 699_Systole
+Miss: 700_Diastole
+Miss: 700_Systole
+./src/train_updated.py:118: DeprecationWarning: [91mmxnet.model.FeedForward has been deprecated. Please use mxnet.mod.Module instead.[0m
+  momentum           = 0.9)
+/usr/local/lib/python3.5/dist-packages/mxnet/model.py:572: DeprecationWarning: [91mCalling initializer with init(str, NDArray) has been deprecated.please use init(mx.init.InitDesc(...), NDArray) instead.[0m
+  self.initializer(k, v)
+/usr/local/lib/python3.5/dist-packages/mxnet/model.py:578: DeprecationWarning: [91mCalling initializer with init(str, NDArray) has been deprecated.please use init(mx.init.InitDesc(...), NDArray) instead.[0m
+  self.initializer(k, v)
+INFO:root:Start training with [gpu(0)]
+[15:09:06] src/operator/nn/./cudnn/./cudnn_algoreg-inl.h:107: Running performance tests to find the best convolution algorithm, this can take a while... (setting env variable MXNET_CUDNN_AUTOTUNE_DEFAULT to 0 to disable)
+INFO:root:Epoch[0] Resetting Data Iterator
+INFO:root:Epoch[0] Time cost=4.722
+INFO:root:Epoch[0] Validation-CRPS=0.076261
+INFO:root:Epoch[1] Resetting Data Iterator
+INFO:root:Epoch[1] Time cost=4.461
+INFO:root:Epoch[1] Validation-CRPS=0.050573
+INFO:root:Epoch[2] Resetting Data Iterator
+INFO:root:Epoch[2] Time cost=4.507
+INFO:root:Epoch[2] Validation-CRPS=0.040013
+INFO:root:Epoch[3] Resetting Data Iterator
+INFO:root:Epoch[3] Time cost=4.521
+INFO:root:Epoch[3] Validation-CRPS=0.038000
+INFO:root:Epoch[4] Resetting Data Iterator
+INFO:root:Epoch[4] Time cost=4.473
+INFO:root:Epoch[4] Validation-CRPS=0.039962
+INFO:root:Epoch[5] Resetting Data Iterator
+INFO:root:Epoch[5] Time cost=4.463
+INFO:root:Epoch[5] Validation-CRPS=0.038034
+INFO:root:Epoch[6] Resetting Data Iterator
+INFO:root:Epoch[6] Time cost=4.455
+INFO:root:Epoch[6] Validation-CRPS=0.035627
+INFO:root:Epoch[7] Resetting Data Iterator
+INFO:root:Epoch[7] Time cost=4.462
+INFO:root:Epoch[7] Validation-CRPS=0.036016
+INFO:root:Epoch[8] Resetting Data Iterator
+INFO:root:Epoch[8] Time cost=4.494
+INFO:root:Epoch[8] Validation-CRPS=0.038794
+INFO:root:Epoch[9] Resetting Data Iterator
+INFO:root:Epoch[9] Time cost=4.459
+INFO:root:Epoch[9] Validation-CRPS=0.037301
+INFO:root:Epoch[10] Resetting Data Iterator
+INFO:root:Epoch[10] Time cost=4.483
+INFO:root:Epoch[10] Validation-CRPS=0.035100
+INFO:root:Epoch[11] Resetting Data Iterator
+INFO:root:Epoch[11] Time cost=4.494
+INFO:root:Epoch[11] Validation-CRPS=0.035691
+INFO:root:Epoch[12] Resetting Data Iterator
+INFO:root:Epoch[12] Time cost=4.461
+INFO:root:Epoch[12] Validation-CRPS=0.038547
+INFO:root:Epoch[13] Resetting Data Iterator
+INFO:root:Epoch[13] Time cost=4.479
+INFO:root:Epoch[13] Validation-CRPS=0.037120
+INFO:root:Epoch[14] Resetting Data Iterator
+INFO:root:Epoch[14] Time cost=4.519
+INFO:root:Epoch[14] Validation-CRPS=0.034942
+INFO:root:Epoch[15] Resetting Data Iterator
+INFO:root:Epoch[15] Time cost=4.464
+INFO:root:Epoch[15] Validation-CRPS=0.035565
+INFO:root:Epoch[16] Resetting Data Iterator
+INFO:root:Epoch[16] Time cost=4.516
+INFO:root:Epoch[16] Validation-CRPS=0.038465
+INFO:root:Epoch[17] Resetting Data Iterator
+INFO:root:Epoch[17] Time cost=4.361
+INFO:root:Epoch[17] Validation-CRPS=0.037045
+INFO:root:Epoch[18] Resetting Data Iterator
+INFO:root:Epoch[18] Time cost=4.454
+INFO:root:Epoch[18] Validation-CRPS=0.034867
+INFO:root:Epoch[19] Resetting Data Iterator
+INFO:root:Epoch[19] Time cost=4.420
+INFO:root:Epoch[19] Validation-CRPS=0.035511
+INFO:root:Epoch[20] Resetting Data Iterator
+INFO:root:Epoch[20] Time cost=4.506
+INFO:root:Epoch[20] Validation-CRPS=0.038428
+INFO:root:Epoch[21] Resetting Data Iterator
+INFO:root:Epoch[21] Time cost=4.461
+INFO:root:Epoch[21] Validation-CRPS=0.037004
+INFO:root:Epoch[22] Resetting Data Iterator
+INFO:root:Epoch[22] Time cost=4.462
+INFO:root:Epoch[22] Validation-CRPS=0.034825
+INFO:root:Epoch[23] Resetting Data Iterator
+INFO:root:Epoch[23] Time cost=4.453
+INFO:root:Epoch[23] Validation-CRPS=0.035483
+INFO:root:Epoch[24] Resetting Data Iterator
+INFO:root:Epoch[24] Time cost=4.486
+INFO:root:Epoch[24] Validation-CRPS=0.038410
+INFO:root:Epoch[25] Resetting Data Iterator
+INFO:root:Epoch[25] Time cost=4.431
+INFO:root:Epoch[25] Validation-CRPS=0.036992
+INFO:root:Epoch[26] Resetting Data Iterator
+INFO:root:Epoch[26] Time cost=4.452
+INFO:root:Epoch[26] Validation-CRPS=0.034815
+INFO:root:Epoch[27] Resetting Data Iterator
+INFO:root:Epoch[27] Time cost=4.517
+INFO:root:Epoch[27] Validation-CRPS=0.035471
+INFO:root:Epoch[28] Resetting Data Iterator
+INFO:root:Epoch[28] Time cost=4.453
+INFO:root:Epoch[28] Validation-CRPS=0.038407
+INFO:root:Epoch[29] Resetting Data Iterator
+INFO:root:Epoch[29] Time cost=4.453
+INFO:root:Epoch[29] Validation-CRPS=0.036983
+INFO:root:Epoch[30] Resetting Data Iterator
+INFO:root:Epoch[30] Time cost=4.475
+INFO:root:Epoch[30] Validation-CRPS=0.034803
+INFO:root:Epoch[31] Resetting Data Iterator
+INFO:root:Epoch[31] Time cost=4.469
+INFO:root:Epoch[31] Validation-CRPS=0.035472
+INFO:root:Epoch[32] Resetting Data Iterator
+INFO:root:Epoch[32] Time cost=4.474
+INFO:root:Epoch[32] Validation-CRPS=0.038396
+INFO:root:Epoch[33] Resetting Data Iterator
+INFO:root:Epoch[33] Time cost=4.420
+INFO:root:Epoch[33] Validation-CRPS=0.036976
+INFO:root:Epoch[34] Resetting Data Iterator
+INFO:root:Epoch[34] Time cost=4.537
+INFO:root:Epoch[34] Validation-CRPS=0.034800
+INFO:root:Epoch[35] Resetting Data Iterator
+INFO:root:Epoch[35] Time cost=4.467
+INFO:root:Epoch[35] Validation-CRPS=0.035468
+INFO:root:Epoch[36] Resetting Data Iterator
+INFO:root:Epoch[36] Time cost=4.504
+INFO:root:Epoch[36] Validation-CRPS=0.038377
+INFO:root:Epoch[37] Resetting Data Iterator
+INFO:root:Epoch[37] Time cost=4.470
+INFO:root:Epoch[37] Validation-CRPS=0.036961
+INFO:root:Epoch[38] Resetting Data Iterator
+INFO:root:Epoch[38] Time cost=4.509
+INFO:root:Epoch[38] Validation-CRPS=0.034784
+INFO:root:Epoch[39] Resetting Data Iterator
+INFO:root:Epoch[39] Time cost=4.443
+INFO:root:Epoch[39] Validation-CRPS=0.035490
+INFO:root:Epoch[40] Resetting Data Iterator
+INFO:root:Epoch[40] Time cost=4.506
+INFO:root:Epoch[40] Validation-CRPS=0.038372
+INFO:root:Epoch[41] Resetting Data Iterator
+INFO:root:Epoch[41] Time cost=4.470
+INFO:root:Epoch[41] Validation-CRPS=0.036969
+INFO:root:Epoch[42] Resetting Data Iterator
+INFO:root:Epoch[42] Time cost=4.476
+INFO:root:Epoch[42] Validation-CRPS=0.034809
+INFO:root:Epoch[43] Resetting Data Iterator
+INFO:root:Epoch[43] Time cost=4.476
+INFO:root:Epoch[43] Validation-CRPS=0.035485
+INFO:root:Epoch[44] Resetting Data Iterator
+INFO:root:Epoch[44] Time cost=4.441
+INFO:root:Epoch[44] Validation-CRPS=0.038379
+INFO:root:Epoch[45] Resetting Data Iterator
+INFO:root:Epoch[45] Time cost=4.461
+INFO:root:Epoch[45] Validation-CRPS=0.036971
+INFO:root:Epoch[46] Resetting Data Iterator
+INFO:root:Epoch[46] Time cost=4.518
+INFO:root:Epoch[46] Validation-CRPS=0.034781
+INFO:root:Epoch[47] Resetting Data Iterator
+INFO:root:Epoch[47] Time cost=4.469
+INFO:root:Epoch[47] Validation-CRPS=0.035505
+INFO:root:Epoch[48] Resetting Data Iterator
+INFO:root:Epoch[48] Time cost=4.492
+INFO:root:Epoch[48] Validation-CRPS=0.038372
+INFO:root:Epoch[49] Resetting Data Iterator
+INFO:root:Epoch[49] Time cost=4.430
+INFO:root:Epoch[49] Validation-CRPS=0.036977
+INFO:root:Epoch[50] Resetting Data Iterator
+INFO:root:Epoch[50] Time cost=4.536
+INFO:root:Epoch[50] Validation-CRPS=0.034776
+INFO:root:Epoch[51] Resetting Data Iterator
+INFO:root:Epoch[51] Time cost=4.504
+INFO:root:Epoch[51] Validation-CRPS=0.035507
+INFO:root:Epoch[52] Resetting Data Iterator
+INFO:root:Epoch[52] Time cost=4.489
+INFO:root:Epoch[52] Validation-CRPS=0.038368
+INFO:root:Epoch[53] Resetting Data Iterator
+INFO:root:Epoch[53] Time cost=4.473
+INFO:root:Epoch[53] Validation-CRPS=0.036974
+INFO:root:Epoch[54] Resetting Data Iterator
+INFO:root:Epoch[54] Time cost=4.497
+INFO:root:Epoch[54] Validation-CRPS=0.034778
+INFO:root:Epoch[55] Resetting Data Iterator
+INFO:root:Epoch[55] Time cost=4.422
+INFO:root:Epoch[55] Validation-CRPS=0.035513
+INFO:root:Epoch[56] Resetting Data Iterator
+INFO:root:Epoch[56] Time cost=4.487
+INFO:root:Epoch[56] Validation-CRPS=0.038375
+INFO:root:Epoch[57] Resetting Data Iterator
+INFO:root:Epoch[57] Time cost=4.474
+INFO:root:Epoch[57] Validation-CRPS=0.036995
+INFO:root:Epoch[58] Resetting Data Iterator
+INFO:root:Epoch[58] Time cost=4.520
+INFO:root:Epoch[58] Validation-CRPS=0.034773
+INFO:root:Epoch[59] Resetting Data Iterator
+INFO:root:Epoch[59] Time cost=4.470
+INFO:root:Epoch[59] Validation-CRPS=0.035515
+INFO:root:Epoch[60] Resetting Data Iterator
+INFO:root:Epoch[60] Time cost=4.483
+INFO:root:Epoch[60] Validation-CRPS=0.038339
+INFO:root:Epoch[61] Resetting Data Iterator
+INFO:root:Epoch[61] Time cost=4.480
+INFO:root:Epoch[61] Validation-CRPS=0.036986
+INFO:root:Epoch[62] Resetting Data Iterator
+INFO:root:Epoch[62] Time cost=4.548
+INFO:root:Epoch[62] Validation-CRPS=0.034788
+INFO:root:Epoch[63] Resetting Data Iterator
+INFO:root:Epoch[63] Time cost=4.487
+INFO:root:Epoch[63] Validation-CRPS=0.035522
+INFO:root:Epoch[64] Resetting Data Iterator
+INFO:root:Epoch[64] Time cost=4.455
+INFO:root:Epoch[64] Validation-CRPS=0.038396
+./src/train_updated.py:152: DeprecationWarning: [91mmxnet.model.FeedForward has been deprecated. Please use mxnet.mod.Module instead.[0m
+  momentum           = 0.9)
+INFO:root:Start training with [gpu(0)]
+INFO:root:Epoch[0] Resetting Data Iterator
+INFO:root:Epoch[0] Time cost=5.096
+INFO:root:Epoch[0] Validation-CRPS=0.107974
+INFO:root:Epoch[1] Resetting Data Iterator
+INFO:root:Epoch[1] Time cost=4.474
+INFO:root:Epoch[1] Validation-CRPS=0.071086
+INFO:root:Epoch[2] Resetting Data Iterator
+INFO:root:Epoch[2] Time cost=4.501
+INFO:root:Epoch[2] Validation-CRPS=0.058987
+INFO:root:Epoch[3] Resetting Data Iterator
+INFO:root:Epoch[3] Time cost=4.529
+INFO:root:Epoch[3] Validation-CRPS=0.056357
+INFO:root:Epoch[4] Resetting Data Iterator
+INFO:root:Epoch[4] Time cost=4.486
+INFO:root:Epoch[4] Validation-CRPS=0.057447
+INFO:root:Epoch[5] Resetting Data Iterator
+INFO:root:Epoch[5] Time cost=4.444
+INFO:root:Epoch[5] Validation-CRPS=0.057298
+INFO:root:Epoch[6] Resetting Data Iterator
+INFO:root:Epoch[6] Time cost=4.477
+INFO:root:Epoch[6] Validation-CRPS=0.054156
+INFO:root:Epoch[7] Resetting Data Iterator
+INFO:root:Epoch[7] Time cost=4.481
+INFO:root:Epoch[7] Validation-CRPS=0.054216
+INFO:root:Epoch[8] Resetting Data Iterator
+INFO:root:Epoch[8] Time cost=4.478
+INFO:root:Epoch[8] Validation-CRPS=0.056168
+INFO:root:Epoch[9] Resetting Data Iterator
+INFO:root:Epoch[9] Time cost=4.417
+INFO:root:Epoch[9] Validation-CRPS=0.056483
+INFO:root:Epoch[10] Resetting Data Iterator
+INFO:root:Epoch[10] Time cost=4.447
+INFO:root:Epoch[10] Validation-CRPS=0.053636
+INFO:root:Epoch[11] Resetting Data Iterator
+INFO:root:Epoch[11] Time cost=4.472
+INFO:root:Epoch[11] Validation-CRPS=0.053831
+INFO:root:Epoch[12] Resetting Data Iterator
+INFO:root:Epoch[12] Time cost=4.521
+INFO:root:Epoch[12] Validation-CRPS=0.055871
+INFO:root:Epoch[13] Resetting Data Iterator
+INFO:root:Epoch[13] Time cost=4.477
+INFO:root:Epoch[13] Validation-CRPS=0.056270
+INFO:root:Epoch[14] Resetting Data Iterator
+INFO:root:Epoch[14] Time cost=4.505
+INFO:root:Epoch[14] Validation-CRPS=0.053464
+INFO:root:Epoch[15] Resetting Data Iterator
+INFO:root:Epoch[15] Time cost=4.395
+INFO:root:Epoch[15] Validation-CRPS=0.053692
+INFO:root:Epoch[16] Resetting Data Iterator
+INFO:root:Epoch[16] Time cost=4.498
+INFO:root:Epoch[16] Validation-CRPS=0.055764
+INFO:root:Epoch[17] Resetting Data Iterator
+INFO:root:Epoch[17] Time cost=4.402
+INFO:root:Epoch[17] Validation-CRPS=0.056178
+./src/train_updated.py:118: DeprecationWarning: [91mmxnet.model.FeedForward has been deprecated. Please use mxnet.mod.Module instead.[0m
+  momentum           = 0.9)
+/usr/local/lib/python3.5/dist-packages/mxnet/model.py:572: DeprecationWarning: [91mCalling initializer with init(str, NDArray) has been deprecated.please use init(mx.init.InitDesc(...), NDArray) instead.[0m
+  self.initializer(k, v)
+/usr/local/lib/python3.5/dist-packages/mxnet/model.py:578: DeprecationWarning: [91mCalling initializer with init(str, NDArray) has been deprecated.please use init(mx.init.InitDesc(...), NDArray) instead.[0m
+  self.initializer(k, v)
+INFO:root:Start training with [gpu(0)]
+[15:20:07] src/operator/nn/./cudnn/./cudnn_algoreg-inl.h:107: Running performance tests to find the best convolution algorithm, this can take a while... (setting env variable MXNET_CUDNN_AUTOTUNE_DEFAULT to 0 to disable)
+INFO:root:Epoch[0] Resetting Data Iterator
+INFO:root:Epoch[0] Time cost=4.740
+INFO:root:Epoch[0] Validation-CRPS=0.152302
+INFO:root:Epoch[1] Resetting Data Iterator
+INFO:root:Epoch[1] Time cost=4.452
+INFO:root:Epoch[1] Validation-CRPS=0.134995
+INFO:root:Epoch[2] Resetting Data Iterator
+INFO:root:Epoch[2] Time cost=4.540
+INFO:root:Epoch[2] Validation-CRPS=0.120002
+INFO:root:Epoch[3] Resetting Data Iterator
+INFO:root:Epoch[3] Time cost=4.537
+INFO:root:Epoch[3] Validation-CRPS=0.108136
+INFO:root:Epoch[4] Resetting Data Iterator
+INFO:root:Epoch[4] Time cost=4.535
+INFO:root:Epoch[4] Validation-CRPS=0.100140
+INFO:root:Epoch[5] Resetting Data Iterator
+INFO:root:Epoch[5] Time cost=4.449
+INFO:root:Epoch[5] Validation-CRPS=0.090805
+INFO:root:Epoch[6] Resetting Data Iterator
+INFO:root:Epoch[6] Time cost=4.516
+INFO:root:Epoch[6] Validation-CRPS=0.082195
+INFO:root:Epoch[7] Resetting Data Iterator
+INFO:root:Epoch[7] Time cost=4.474
+INFO:root:Epoch[7] Validation-CRPS=0.075685
+INFO:root:Epoch[8] Resetting Data Iterator
+INFO:root:Epoch[8] Time cost=5.103
+INFO:root:Epoch[8] Validation-CRPS=0.072249
+INFO:root:Epoch[9] Resetting Data Iterator
+INFO:root:Epoch[9] Time cost=8.082
+INFO:root:Epoch[9] Validation-CRPS=0.066066
+INFO:root:Epoch[10] Resetting Data Iterator
+INFO:root:Epoch[10] Time cost=9.368
+INFO:root:Epoch[10] Validation-CRPS=0.060452
+INFO:root:Epoch[11] Resetting Data Iterator
+INFO:root:Epoch[11] Time cost=9.188
+INFO:root:Epoch[11] Validation-CRPS=0.056986
+INFO:root:Epoch[12] Resetting Data Iterator
+INFO:root:Epoch[12] Time cost=9.216
+INFO:root:Epoch[12] Validation-CRPS=0.056568
+INFO:root:Epoch[13] Resetting Data Iterator
+INFO:root:Epoch[13] Time cost=9.101
+INFO:root:Epoch[13] Validation-CRPS=0.052929
+INFO:root:Epoch[14] Resetting Data Iterator
+INFO:root:Epoch[14] Time cost=9.448
+INFO:root:Epoch[14] Validation-CRPS=0.049283
+INFO:root:Epoch[15] Resetting Data Iterator
+INFO:root:Epoch[15] Time cost=9.361
+INFO:root:Epoch[15] Validation-CRPS=0.047703
+INFO:root:Epoch[16] Resetting Data Iterator
+INFO:root:Epoch[16] Time cost=9.233
+INFO:root:Epoch[16] Validation-CRPS=0.048820
+INFO:root:Epoch[17] Resetting Data Iterator
+INFO:root:Epoch[17] Time cost=9.125
+INFO:root:Epoch[17] Validation-CRPS=0.046513
+INFO:root:Epoch[18] Resetting Data Iterator
+INFO:root:Epoch[18] Time cost=9.219
+INFO:root:Epoch[18] Validation-CRPS=0.043921
+INFO:root:Epoch[19] Resetting Data Iterator
+INFO:root:Epoch[19] Time cost=9.310
+INFO:root:Epoch[19] Validation-CRPS=0.043316
+INFO:root:Epoch[20] Resetting Data Iterator
+INFO:root:Epoch[20] Time cost=9.101
+INFO:root:Epoch[20] Validation-CRPS=0.045096
+INFO:root:Epoch[21] Resetting Data Iterator
+INFO:root:Epoch[21] Time cost=9.442
+INFO:root:Epoch[21] Validation-CRPS=0.043218
+INFO:root:Epoch[22] Resetting Data Iterator
+INFO:root:Epoch[22] Time cost=8.912
+INFO:root:Epoch[22] Validation-CRPS=0.040981
+INFO:root:Epoch[23] Resetting Data Iterator
+INFO:root:Epoch[23] Time cost=8.940
+INFO:root:Epoch[23] Validation-CRPS=0.040824
+INFO:root:Epoch[24] Resetting Data Iterator
+INFO:root:Epoch[24] Time cost=9.078
+INFO:root:Epoch[24] Validation-CRPS=0.043024
+INFO:root:Epoch[25] Resetting Data Iterator
+INFO:root:Epoch[25] Time cost=8.668
+INFO:root:Epoch[25] Validation-CRPS=0.041367
+INFO:root:Epoch[26] Resetting Data Iterator
+INFO:root:Epoch[26] Time cost=9.219
+INFO:root:Epoch[26] Validation-CRPS=0.039227
+INFO:root:Epoch[27] Resetting Data Iterator
+INFO:root:Epoch[27] Time cost=9.002
+INFO:root:Epoch[27] Validation-CRPS=0.039312
+INFO:root:Epoch[28] Resetting Data Iterator
+INFO:root:Epoch[28] Time cost=7.702
+INFO:root:Epoch[28] Validation-CRPS=0.041719
+INFO:root:Epoch[29] Resetting Data Iterator
+INFO:root:Epoch[29] Time cost=8.304
+INFO:root:Epoch[29] Validation-CRPS=0.040237
+INFO:root:Epoch[30] Resetting Data Iterator
+INFO:root:Epoch[30] Time cost=9.392
+INFO:root:Epoch[30] Validation-CRPS=0.038155
+INFO:root:Epoch[31] Resetting Data Iterator
+INFO:root:Epoch[31] Time cost=9.362
+INFO:root:Epoch[31] Validation-CRPS=0.038356
+INFO:root:Epoch[32] Resetting Data Iterator
+INFO:root:Epoch[32] Time cost=9.349
+INFO:root:Epoch[32] Validation-CRPS=0.040854
+INFO:root:Epoch[33] Resetting Data Iterator
+INFO:root:Epoch[33] Time cost=8.781
+INFO:root:Epoch[33] Validation-CRPS=0.039439
+INFO:root:Epoch[34] Resetting Data Iterator
+INFO:root:Epoch[34] Time cost=9.054
+INFO:root:Epoch[34] Validation-CRPS=0.037435
+INFO:root:Epoch[35] Resetting Data Iterator
+INFO:root:Epoch[35] Time cost=9.211
+INFO:root:Epoch[35] Validation-CRPS=0.037755
+INFO:root:Epoch[36] Resetting Data Iterator
+INFO:root:Epoch[36] Time cost=9.069
+INFO:root:Epoch[36] Validation-CRPS=0.040328
+INFO:root:Epoch[37] Resetting Data Iterator
+INFO:root:Epoch[37] Time cost=8.971
+INFO:root:Epoch[37] Validation-CRPS=0.038919
+INFO:root:Epoch[38] Resetting Data Iterator
+INFO:root:Epoch[38] Time cost=9.260
+INFO:root:Epoch[38] Validation-CRPS=0.036929
+INFO:root:Epoch[39] Resetting Data Iterator
+INFO:root:Epoch[39] Time cost=9.310
+INFO:root:Epoch[39] Validation-CRPS=0.037296
+INFO:root:Epoch[40] Resetting Data Iterator
+INFO:root:Epoch[40] Time cost=9.426
+INFO:root:Epoch[40] Validation-CRPS=0.039950
+INFO:root:Epoch[41] Resetting Data Iterator
+INFO:root:Epoch[41] Time cost=9.424
+INFO:root:Epoch[41] Validation-CRPS=0.038555
+INFO:root:Epoch[42] Resetting Data Iterator
+INFO:root:Epoch[42] Time cost=9.640
+INFO:root:Epoch[42] Validation-CRPS=0.036549
+INFO:root:Epoch[43] Resetting Data Iterator
+INFO:root:Epoch[43] Time cost=9.488
+INFO:root:Epoch[43] Validation-CRPS=0.036965
+INFO:root:Epoch[44] Resetting Data Iterator
+INFO:root:Epoch[44] Time cost=9.238
+INFO:root:Epoch[44] Validation-CRPS=0.039651
+INFO:root:Epoch[45] Resetting Data Iterator
+INFO:root:Epoch[45] Time cost=9.416
+INFO:root:Epoch[45] Validation-CRPS=0.038295
+INFO:root:Epoch[46] Resetting Data Iterator
+INFO:root:Epoch[46] Time cost=9.371
+INFO:root:Epoch[46] Validation-CRPS=0.036284
+INFO:root:Epoch[47] Resetting Data Iterator
+INFO:root:Epoch[47] Time cost=8.768
+INFO:root:Epoch[47] Validation-CRPS=0.036709
+INFO:root:Epoch[48] Resetting Data Iterator
+INFO:root:Epoch[48] Time cost=5.228
+INFO:root:Epoch[48] Validation-CRPS=0.039426
+INFO:root:Epoch[49] Resetting Data Iterator
+INFO:root:Epoch[49] Time cost=4.379
+INFO:root:Epoch[49] Validation-CRPS=0.038067
+INFO:root:Epoch[50] Resetting Data Iterator
+INFO:root:Epoch[50] Time cost=4.467
+INFO:root:Epoch[50] Validation-CRPS=0.036067
+INFO:root:Epoch[51] Resetting Data Iterator
+INFO:root:Epoch[51] Time cost=4.399
+INFO:root:Epoch[51] Validation-CRPS=0.036534
+INFO:root:Epoch[52] Resetting Data Iterator
+INFO:root:Epoch[52] Time cost=4.357
+INFO:root:Epoch[52] Validation-CRPS=0.039274
+INFO:root:Epoch[53] Resetting Data Iterator
+INFO:root:Epoch[53] Time cost=4.423
+INFO:root:Epoch[53] Validation-CRPS=0.037905
+INFO:root:Epoch[54] Resetting Data Iterator
+INFO:root:Epoch[54] Time cost=4.487
+INFO:root:Epoch[54] Validation-CRPS=0.035899
+INFO:root:Epoch[55] Resetting Data Iterator
+INFO:root:Epoch[55] Time cost=4.443
+INFO:root:Epoch[55] Validation-CRPS=0.036382
+INFO:root:Epoch[56] Resetting Data Iterator
+INFO:root:Epoch[56] Time cost=4.513
+INFO:root:Epoch[56] Validation-CRPS=0.039148
+INFO:root:Epoch[57] Resetting Data Iterator
+INFO:root:Epoch[57] Time cost=4.459
+INFO:root:Epoch[57] Validation-CRPS=0.037782
+INFO:root:Epoch[58] Resetting Data Iterator
+INFO:root:Epoch[58] Time cost=4.486
+INFO:root:Epoch[58] Validation-CRPS=0.035761
+INFO:root:Epoch[59] Resetting Data Iterator
+INFO:root:Epoch[59] Time cost=4.449
+INFO:root:Epoch[59] Validation-CRPS=0.036262
+INFO:root:Epoch[60] Resetting Data Iterator
+INFO:root:Epoch[60] Time cost=4.448
+INFO:root:Epoch[60] Validation-CRPS=0.039039
+INFO:root:Epoch[61] Resetting Data Iterator
+INFO:root:Epoch[61] Time cost=4.458
+INFO:root:Epoch[61] Validation-CRPS=0.037684
+INFO:root:Epoch[62] Resetting Data Iterator
+INFO:root:Epoch[62] Time cost=4.487
+INFO:root:Epoch[62] Validation-CRPS=0.035656
+INFO:root:Epoch[63] Resetting Data Iterator
+INFO:root:Epoch[63] Time cost=4.489
+INFO:root:Epoch[63] Validation-CRPS=0.036160
+INFO:root:Epoch[64] Resetting Data Iterator
+INFO:root:Epoch[64] Time cost=4.458
+INFO:root:Epoch[64] Validation-CRPS=0.038950
+./src/train_updated.py:152: DeprecationWarning: [91mmxnet.model.FeedForward has been deprecated. Please use mxnet.mod.Module instead.[0m
+  momentum           = 0.9)
+INFO:root:Start training with [gpu(0)]
+INFO:root:Epoch[0] Resetting Data Iterator
+INFO:root:Epoch[0] Time cost=5.076
+INFO:root:Epoch[0] Validation-CRPS=0.196631
+INFO:root:Epoch[1] Resetting Data Iterator
+INFO:root:Epoch[1] Time cost=4.503
+INFO:root:Epoch[1] Validation-CRPS=0.182921
+INFO:root:Epoch[2] Resetting Data Iterator
+INFO:root:Epoch[2] Time cost=4.509
+INFO:root:Epoch[2] Validation-CRPS=0.168129
+INFO:root:Epoch[3] Resetting Data Iterator
+INFO:root:Epoch[3] Time cost=4.479
+INFO:root:Epoch[3] Validation-CRPS=0.154700
+INFO:root:Epoch[4] Resetting Data Iterator
+INFO:root:Epoch[4] Time cost=4.493
+INFO:root:Epoch[4] Validation-CRPS=0.145162
+INFO:root:Epoch[5] Resetting Data Iterator
+INFO:root:Epoch[5] Time cost=4.440
+INFO:root:Epoch[5] Validation-CRPS=0.135492
+INFO:root:Epoch[6] Resetting Data Iterator
+INFO:root:Epoch[6] Time cost=4.492
+INFO:root:Epoch[6] Validation-CRPS=0.124896
+INFO:root:Epoch[7] Resetting Data Iterator
+INFO:root:Epoch[7] Time cost=4.490
+INFO:root:Epoch[7] Validation-CRPS=0.115981
+INFO:root:Epoch[8] Resetting Data Iterator
+INFO:root:Epoch[8] Time cost=4.541
+INFO:root:Epoch[8] Validation-CRPS=0.110525
+INFO:root:Epoch[9] Resetting Data Iterator
+INFO:root:Epoch[9] Time cost=4.464
+INFO:root:Epoch[9] Validation-CRPS=0.104503
+INFO:root:Epoch[10] Resetting Data Iterator
+INFO:root:Epoch[10] Time cost=4.477
+INFO:root:Epoch[10] Validation-CRPS=0.097345
+INFO:root:Epoch[11] Resetting Data Iterator
+INFO:root:Epoch[11] Time cost=4.478
+INFO:root:Epoch[11] Validation-CRPS=0.091916
+INFO:root:Epoch[12] Resetting Data Iterator
+INFO:root:Epoch[12] Time cost=4.493
+INFO:root:Epoch[12] Validation-CRPS=0.089071
+INFO:root:Epoch[13] Resetting Data Iterator
+INFO:root:Epoch[13] Time cost=4.459
+INFO:root:Epoch[13] Validation-CRPS=0.085324
+INFO:root:Epoch[14] Resetting Data Iterator
+INFO:root:Epoch[14] Time cost=4.483
+INFO:root:Epoch[14] Validation-CRPS=0.079758
+INFO:root:Epoch[15] Resetting Data Iterator
+INFO:root:Epoch[15] Time cost=4.474
+INFO:root:Epoch[15] Validation-CRPS=0.076652
+INFO:root:Epoch[16] Resetting Data Iterator
+INFO:root:Epoch[16] Time cost=4.505
+INFO:root:Epoch[16] Validation-CRPS=0.075949
+INFO:root:Epoch[17] Resetting Data Iterator
+INFO:root:Epoch[17] Time cost=4.498
+INFO:root:Epoch[17] Validation-CRPS=0.074009
+INFO:root:Epoch[18] Resetting Data Iterator
+INFO:root:Epoch[18] Time cost=4.505
+INFO:root:Epoch[18] Validation-CRPS=0.069739
+INFO:root:Epoch[19] Resetting Data Iterator
+INFO:root:Epoch[19] Time cost=4.493
+INFO:root:Epoch[19] Validation-CRPS=0.067968
+INFO:root:Epoch[20] Resetting Data Iterator
+INFO:root:Epoch[20] Time cost=4.456
+INFO:root:Epoch[20] Validation-CRPS=0.068539
+INFO:root:Epoch[21] Resetting Data Iterator
+INFO:root:Epoch[21] Time cost=4.438
+INFO:root:Epoch[21] Validation-CRPS=0.067659
+INFO:root:Epoch[22] Resetting Data Iterator
+INFO:root:Epoch[22] Time cost=4.529
+INFO:root:Epoch[22] Validation-CRPS=0.064308
+INFO:root:Epoch[23] Resetting Data Iterator
+INFO:root:Epoch[23] Time cost=4.494
+INFO:root:Epoch[23] Validation-CRPS=0.063261
+INFO:root:Epoch[24] Resetting Data Iterator
+INFO:root:Epoch[24] Time cost=4.474
+INFO:root:Epoch[24] Validation-CRPS=0.064400
+INFO:root:Epoch[25] Resetting Data Iterator
+INFO:root:Epoch[25] Time cost=4.484
+INFO:root:Epoch[25] Validation-CRPS=0.064002
+INFO:root:Epoch[26] Resetting Data Iterator
+INFO:root:Epoch[26] Time cost=4.439
+INFO:root:Epoch[26] Validation-CRPS=0.061027
+INFO:root:Epoch[27] Resetting Data Iterator
+INFO:root:Epoch[27] Time cost=4.476
+INFO:root:Epoch[27] Validation-CRPS=0.060478
+INFO:root:Epoch[28] Resetting Data Iterator
+INFO:root:Epoch[28] Time cost=4.516
+INFO:root:Epoch[28] Validation-CRPS=0.061940
+INFO:root:Epoch[29] Resetting Data Iterator
+INFO:root:Epoch[29] Time cost=4.458
+INFO:root:Epoch[29] Validation-CRPS=0.061791
+INFO:root:Epoch[30] Resetting Data Iterator
+INFO:root:Epoch[30] Time cost=4.520
+INFO:root:Epoch[30] Validation-CRPS=0.058917
+INFO:root:Epoch[31] Resetting Data Iterator
+INFO:root:Epoch[31] Time cost=4.406
+INFO:root:Epoch[31] Validation-CRPS=0.058642
+INFO:root:Epoch[32] Resetting Data Iterator
+INFO:root:Epoch[32] Time cost=4.451
+INFO:root:Epoch[32] Validation-CRPS=0.060343
+INFO:root:Epoch[33] Resetting Data Iterator
+INFO:root:Epoch[33] Time cost=4.425
+INFO:root:Epoch[33] Validation-CRPS=0.060419
+INFO:root:Epoch[34] Resetting Data Iterator
+INFO:root:Epoch[34] Time cost=4.503
+INFO:root:Epoch[34] Validation-CRPS=0.057592
+INFO:root:Epoch[35] Resetting Data Iterator
+INFO:root:Epoch[35] Time cost=4.476
+INFO:root:Epoch[35] Validation-CRPS=0.057441
+INFO:root:Epoch[36] Resetting Data Iterator
+INFO:root:Epoch[36] Time cost=4.527
+INFO:root:Epoch[36] Validation-CRPS=0.059260
+INFO:root:Epoch[37] Resetting Data Iterator
+INFO:root:Epoch[37] Time cost=4.410
+INFO:root:Epoch[37] Validation-CRPS=0.059427
+INFO:root:Epoch[38] Resetting Data Iterator
+INFO:root:Epoch[38] Time cost=4.474
+INFO:root:Epoch[38] Validation-CRPS=0.056680
+INFO:root:Epoch[39] Resetting Data Iterator
+INFO:root:Epoch[39] Time cost=4.488
+INFO:root:Epoch[39] Validation-CRPS=0.056619
+INFO:root:Epoch[40] Resetting Data Iterator
+INFO:root:Epoch[40] Time cost=4.523
+INFO:root:Epoch[40] Validation-CRPS=0.058489
+INFO:root:Epoch[41] Resetting Data Iterator
+INFO:root:Epoch[41] Time cost=4.468
+INFO:root:Epoch[41] Validation-CRPS=0.058730
+INFO:root:Epoch[42] Resetting Data Iterator
+INFO:root:Epoch[42] Time cost=4.461
+INFO:root:Epoch[42] Validation-CRPS=0.055991
+INFO:root:Epoch[43] Resetting Data Iterator
+INFO:root:Epoch[43] Time cost=4.486
+INFO:root:Epoch[43] Validation-CRPS=0.056031
+INFO:root:Epoch[44] Resetting Data Iterator
+INFO:root:Epoch[44] Time cost=4.488
+INFO:root:Epoch[44] Validation-CRPS=0.057948
+INFO:root:Epoch[45] Resetting Data Iterator
+INFO:root:Epoch[45] Time cost=4.475
+INFO:root:Epoch[45] Validation-CRPS=0.058223
+INFO:root:Epoch[46] Resetting Data Iterator
+INFO:root:Epoch[46] Time cost=4.526
+INFO:root:Epoch[46] Validation-CRPS=0.055487
+INFO:root:Epoch[47] Resetting Data Iterator
+INFO:root:Epoch[47] Time cost=4.408
+INFO:root:Epoch[47] Validation-CRPS=0.055567
+INFO:root:Epoch[48] Resetting Data Iterator
+INFO:root:Epoch[48] Time cost=4.449
+INFO:root:Epoch[48] Validation-CRPS=0.057541
+INFO:root:Epoch[49] Resetting Data Iterator
+INFO:root:Epoch[49] Time cost=4.477
+INFO:root:Epoch[49] Validation-CRPS=0.057877
+INFO:root:Epoch[50] Resetting Data Iterator
+INFO:root:Epoch[50] Time cost=4.510
+INFO:root:Epoch[50] Validation-CRPS=0.055132
+INFO:root:Epoch[51] Resetting Data Iterator
+INFO:root:Epoch[51] Time cost=4.506
+INFO:root:Epoch[51] Validation-CRPS=0.055237
+INFO:root:Epoch[52] Resetting Data Iterator
+INFO:root:Epoch[52] Time cost=4.539
+INFO:root:Epoch[52] Validation-CRPS=0.057240
+INFO:root:Epoch[53] Resetting Data Iterator
+INFO:root:Epoch[53] Time cost=4.381
+INFO:root:Epoch[53] Validation-CRPS=0.057587
+INFO:root:Epoch[54] Resetting Data Iterator
+INFO:root:Epoch[54] Time cost=4.529
+INFO:root:Epoch[54] Validation-CRPS=0.054846
+INFO:root:Epoch[55] Resetting Data Iterator
+INFO:root:Epoch[55] Time cost=4.506
+INFO:root:Epoch[55] Validation-CRPS=0.054982
+INFO:root:Epoch[56] Resetting Data Iterator
+INFO:root:Epoch[56] Time cost=4.526
+INFO:root:Epoch[56] Validation-CRPS=0.057000
+INFO:root:Epoch[57] Resetting Data Iterator
+INFO:root:Epoch[57] Time cost=4.479
+INFO:root:Epoch[57] Validation-CRPS=0.057368
+INFO:root:Epoch[58] Resetting Data Iterator
+INFO:root:Epoch[58] Time cost=4.434
+INFO:root:Epoch[58] Validation-CRPS=0.054617
+INFO:root:Epoch[59] Resetting Data Iterator
+INFO:root:Epoch[59] Time cost=4.459
+INFO:root:Epoch[59] Validation-CRPS=0.054785
+INFO:root:Epoch[60] Resetting Data Iterator
+INFO:root:Epoch[60] Time cost=6.155
+INFO:root:Epoch[60] Validation-CRPS=0.056818
+INFO:root:Epoch[61] Resetting Data Iterator
+INFO:root:Epoch[61] Time cost=8.855
+INFO:root:Epoch[61] Validation-CRPS=0.057192
+INFO:root:Epoch[62] Resetting Data Iterator
+INFO:root:Epoch[62] Time cost=9.288
+INFO:root:Epoch[62] Validation-CRPS=0.054436
+INFO:root:Epoch[63] Resetting Data Iterator
+INFO:root:Epoch[63] Time cost=9.112
+INFO:root:Epoch[63] Validation-CRPS=0.054608
+INFO:root:Epoch[64] Resetting Data Iterator
+INFO:root:Epoch[64] Time cost=9.284
+INFO:root:Epoch[64] Validation-CRPS=0.056660
+Miss: 590_Diastole
+Miss: 590_Systole
+Miss: 597_Diastole
+Miss: 597_Systole
+Miss: 651_Diastole
+Miss: 651_Systole
+Miss: 652_Diastole
+Miss: 652_Systole
+Miss: 653_Diastole
+Miss: 653_Systole
+Miss: 654_Diastole
+Miss: 654_Systole
+Miss: 655_Diastole
+Miss: 655_Systole
+Miss: 656_Diastole
+Miss: 656_Systole
+Miss: 657_Diastole
+Miss: 657_Systole
+Miss: 658_Diastole
+Miss: 658_Systole
+Miss: 659_Diastole
+Miss: 659_Systole
+Miss: 660_Diastole
+Miss: 660_Systole
+Miss: 661_Diastole
+Miss: 661_Systole
+Miss: 662_Diastole
+Miss: 662_Systole
+Miss: 663_Diastole
+Miss: 663_Systole
+Miss: 664_Diastole
+Miss: 664_Systole
+Miss: 665_Diastole
+Miss: 665_Systole
+Miss: 666_Diastole
+Miss: 666_Systole
+Miss: 667_Diastole
+Miss: 667_Systole
+Miss: 668_Diastole
+Miss: 668_Systole
+Miss: 669_Diastole
+Miss: 669_Systole
+Miss: 670_Diastole
+Miss: 670_Systole
+Miss: 671_Diastole
+Miss: 671_Systole
+Miss: 672_Diastole
+Miss: 672_Systole
+Miss: 673_Diastole
+Miss: 673_Systole
+Miss: 674_Diastole
+Miss: 674_Systole
+Miss: 675_Diastole
+Miss: 675_Systole
+Miss: 676_Diastole
+Miss: 676_Systole
+Miss: 677_Diastole
+Miss: 677_Systole
+Miss: 678_Diastole
+Miss: 678_Systole
+Miss: 679_Diastole
+Miss: 679_Systole
+Miss: 680_Diastole
+Miss: 680_Systole
+Miss: 681_Diastole
+Miss: 681_Systole
+Miss: 682_Diastole
+Miss: 682_Systole
+Miss: 683_Diastole
+Miss: 683_Systole
+Miss: 684_Diastole
+Miss: 684_Systole
+Miss: 685_Diastole
+Miss: 685_Systole
+Miss: 686_Diastole
+Miss: 686_Systole
+Miss: 687_Diastole
+Miss: 687_Systole
+Miss: 688_Diastole
+Miss: 688_Systole
+Miss: 689_Diastole
+Miss: 689_Systole
+Miss: 690_Diastole
+Miss: 690_Systole
+Miss: 691_Diastole
+Miss: 691_Systole
+Miss: 692_Diastole
+Miss: 692_Systole
+Miss: 693_Diastole
+Miss: 693_Systole
+Miss: 694_Diastole
+Miss: 694_Systole
+Miss: 695_Diastole
+Miss: 695_Systole
+Miss: 696_Diastole
+Miss: 696_Systole
+Miss: 697_Diastole
+Miss: 697_Systole
+Miss: 698_Diastole
+Miss: 698_Systole
+Miss: 699_Diastole
+Miss: 699_Systole
+Miss: 700_Diastole
+Miss: 700_Systole
