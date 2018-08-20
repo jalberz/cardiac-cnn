@@ -1,0 +1,268 @@
+---
+title: "Predicting EF from Cardiac MRIs: Descriptive Analysis and Simple Linear Regression"
+author: "Shashin Chokshi and Jacob Albers"
+date: "August 20, 2018"
+output: rmarkdown::github_document
+---
+
+```{r, echo = FALSE}
+knitr::opts_chunk$set(
+  fig.path = "README_figs/README-"
+)
+```
+
+## Step 1: Ingest Data Processed by Python 
+
+```{r, echo=TRUE, message=FALSE, warning=FALSE}
+
+rm(list=ls())
+input_data = read.csv("~/Code/uchicago_bmi/clinical_informatics/ef_prediction/kaggle_ndsb2/train_validate_preprocessing/train_enriched.csv")
+test_data = read.csv("~/Code/uchicago_bmi/clinical_informatics/ef_prediction/kaggle_ndsb2/test_enriched.csv")
+
+```
+
+## Step 2: Load Key Libraries for Data Processing and Analysis
+
+```{r, echo=TRUE, message=FALSE, warning=FALSE}
+
+library(data.table)
+library(Rmisc)
+library(dplyr)
+library(sqldf)
+library(lubridate)
+library(ggthemes)
+library(ggplot2)
+```
+
+## Step 3: Process Data and Create Table One Summary 
+
+TODO: Need to take out age
+
+```{r, echo=TRUE, fig.height = 8, fig.width = 8}
+
+
+train_data <- input_data %>%
+              filter(Id <= 500) %>%
+              select('patient_id', 'rows', 'columns', 'spacing', 'slice_thickness', 'plane', 'slice_count', 'up_down_agg', 'age_years', 'sex',
+                       'small_slice_count', 'normal_slice_count', 'angle', 'Systole', 'Diastole') %>%
+              mutate(ejection_fraction = round((Diastole-Systole)/Diastole * 100,1)) 
+
+validate_data <- input_data %>%
+                 filter(Id > 500) %>%
+                select('patient_id', 'rows', 'columns', 'spacing', 'slice_thickness', 'plane', 'slice_count', 'up_down_agg', 'age_years', 'sex', 
+                       'small_slice_count', 'normal_slice_count', 'angle', 'Systole', 'Diastole') %>%
+                mutate(ejection_fraction = round((Diastole-Systole)/Diastole * 100,1)) 
+
+test_data <- test_data %>%
+                select('patient_id', 'rows', 'columns', 'spacing', 'slice_thickness', 'plane', 'slice_count', 'up_down_agg', 'age_years', 'sex', 
+                       'small_slice_count', 'normal_slice_count', 'angle', 'Systole', 'Diastole') %>%
+                mutate(ejection_fraction = round((Diastole-Systole)/Diastole * 100,1)) 
+
+
+library(tableone)
+
+dput(names(train_data))
+
+myVars = c("patient_id", "rows", "columns", "spacing", "slice_thickness", 
+"plane", "slice_count", "up_down_agg", "age_years", "sex", "small_slice_count", 
+"normal_slice_count", "angle", "Systole", "Diastole", "ejection_fraction")
+
+catVars = c("sex", "plane")
+
+tab1 <- CreateTableOne(vars = myVars, data = train_data, factorVars = catVars)
+print(tab1, showAllLevels = TRUE)
+
+```
+
+## Step 4: Visualize Jobs by Key Dimensions
+
+```{r, echo=TRUE, message=FALSE, warning=FALSE, fig.height = 8, fig.width = 8}
+
+
+# Systole Histogram
+ggplot(train_data, aes(x=Systole)) + 
+  geom_histogram(binwidth=5) +     
+  labs(title="Systolic Volume", x = "End Systolic Volume (mLs)", y = "Number of Patients") + 
+  theme_economist()
+
+# Diastole Histogram
+ggplot(train_data, aes(x=Diastole)) + 
+  geom_histogram(binwidth=5) +     
+  labs(title="Diastolic Volume", x = "End Diastolic Volume (mLs)", y = "Number of Patients") + 
+  theme_economist()
+
+# Slice Count Histogram
+ggplot(train_data, aes(x=slice_count)) + 
+  stat_count(binwidth=1) +     
+  labs(title="Slice Count by Number of Patients", x = "Slice Count", y = "Number of Patients") + 
+  theme_economist()
+
+# Age vs. Sex
+ggplot(train_data, aes(x=sex, y=age_years)) + 
+  geom_boxplot() +     
+  labs(title="Age vs Sex", x = "Sex", y = "Age (yrs)") + 
+  theme_economist()
+
+
+## Additional Graphs
+ggplot(train_data, aes(x=age_years)) + 
+  geom_histogram(binwidth=5) +     
+  labs(title="Bandwidth by Count of Jobs", y = "Count of Jobs") + 
+  theme_economist()
+
+
+ggplot(train_data, aes(x=slice_thickness)) + 
+  geom_histogram(binwidth=1) +     
+  labs(title="Bandwidth by Count of Jobs", y = "Count of Jobs") + 
+  theme_economist()
+
+ggplot(train_data, aes(x=angle)) + 
+  geom_histogram(binwidth=1) +     
+  labs(title="Angle by Number of Patients", y = "Count of Jobs") + 
+  theme_economist()
+
+
+ggplot(train_data, aes(x=sex, y=age_years)) + 
+  geom_boxplot() +     
+  labs(title="Age for different Genders", x = "Age") + 
+  theme_economist()
+
+
+
+
+
+```
+
+
+## Step 5: ## Step 5b: Run basic Linear Regression using DICOM metadata to Predict Values from Validate Dataset
+
+```{r, echo=TRUE, message=FALSE, warning=FALSE,  fig.height = 8, fig.width = 8}
+
+### Systolic Regression
+sys_reg <- lm(Systole ~ patient_id + rows + columns + spacing + slice_thickness + plane + slice_count + up_down_agg + age_years + sex + small_slice_count + normal_slice_count + angle, data=train_data)
+summary(sys_reg)
+
+# Create Predicted Value
+validate_data$PredictedSystole <-predict(sys_reg, newdata = validate_data)
+
+
+# Plot Predicted vs Actual Systoliv Volume
+ggplot(validate_data, aes(x=validate_data$Systole, y=validate_data$PredictedSystole)) + 
+  geom_point()+
+  labs(title="Predicted vs Actual Systolic Volume", x = "Predicted Volume (mL)", y = "Actual Volume (mL)") + 
+  geom_smooth(method=lm)
+
+# Calculate Key Metrics
+cor(validate_data$Systole, validate_data$PredictedSystole)
+
+# RMSE 
+sqrt(sum((validate_data$Systole-validate_data$PredictedSystole)^2))
+sqrt(sum((sys_reg$fitted.values-train_data$Systole)^2))
+
+### Diastolic Regression
+
+dias_reg <- glm(Diastole ~ patient_id + rows + columns + spacing + slice_thickness + plane + slice_count + up_down_agg + age_years + sex + small_slice_count + normal_slice_count + angle, data=train_data)
+summary(dias_reg)
+
+validate_data$PredictedDiastole <-predict(dias_reg, newdata = validate_data)
+
+ggplot(validate_data, aes(x=validate_data$Diastole, y=validate_data$PredictedDiastole)) + 
+  geom_point()+
+  labs(title="Predicted vs Actual Diastolic Volume", x = "Predicted Volume (mL)", y = "Actual Volume (mL)") + 
+  theme(plot.title = element_text(size=30)) + 
+  geom_smooth(method=lm)
+
+cor(validate_data$Diastole, validate_data$PredictedDiastole)
+sqrt(sum((validate_data$Diastole-validate_data$PredictedDiastole)^2))
+
+
+### Ejection Fraction
+ef_reg <- glm(ejection_fraction ~ patient_id + rows + columns + spacing + slice_thickness + plane + slice_count + up_down_agg + age_years + sex + small_slice_count + normal_slice_count + angle, data=train_data)
+summary(dias_reg)
+
+validate_data$pred_ejection_fraction <-predict(ef_reg, newdata = validate_data)
+
+ggplot(validate_data, aes(x=validate_data$ejection_fraction, y=validate_data$pred_ejection_fraction)) + 
+  geom_point()+
+  labs(title="Predicted vs Actual Ejection Fraction", x = "Predicted Ejection Fraction (%)", y = "Actual Ejection Fraction (%)") + 
+  theme(plot.title = element_text(size=30)) + 
+  geom_smooth(method=lm)
+
+cor(validate_data$ejection_fraction, validate_data$pred_ejection_fraction)
+sqrt(sum((validate_data$ejection_fraction-validate_data$pred_ejection_fraction)^2))
+
+
+
+```
+
+## Step 5b: Run basic Linear Regression using DICOM metadata to Predict Values from Test Dataset
+
+```{r, echo=TRUE, message=FALSE, warning=FALSE,  fig.height = 8, fig.width = 8}
+
+### Systolic Regression
+sys_reg <- lm(Systole ~ patient_id + rows + columns + spacing + slice_thickness + plane + slice_count + up_down_agg + age_years + sex + small_slice_count + normal_slice_count + angle, data=train_data)
+summary(sys_reg)
+
+# Create Predicted Value
+test_data$PredictedSystole <-predict(sys_reg, newdata = test_data)
+
+
+# Plot Predicted vs Actual Systoliv Volume
+ggplot(test_data, aes(x=test_data$Systole, y=test_data$PredictedSystole)) + 
+  geom_point()+
+  theme(plot.title = element_text(size=30)) + 
+  labs(title="Predicted vs Actual Systolic Volume", x = "Predicted Volume (mL)", y = "Actual Volume (mL)") + 
+  geom_smooth(method=lm)
+
+# Calculate Key Metrics
+cor(test_data$Systole, test_data$PredictedSystole)
+
+# RMSE 
+sqrt(sum((test_data$Systole-test_data$PredictedSystole)^2))
+sqrt(sum((sys_reg$fitted.values-train_data$Systole)^2))
+
+### Diastolic Regression
+
+dias_reg <- glm(Diastole ~ patient_id + rows + columns + spacing + slice_thickness + plane + slice_count + up_down_agg + age_years + sex + small_slice_count + normal_slice_count + angle, data=train_data)
+summary(dias_reg)
+
+test_data$PredictedDiastole <-predict(dias_reg, newdata = test_data)
+
+ggplot(test_data, aes(x=test_data$Diastole, y=test_data$PredictedDiastole)) + 
+  geom_point()+
+  labs(title="Predicted vs Actual Diastolic Volume", x = "Predicted Volume (mL)", y = "Actual Volume (mL)") + 
+  theme(plot.title = element_text(size=30)) + 
+  geom_smooth(method=lm)
+
+cor(test_data$Diastole, test_data$PredictedDiastole)
+sqrt(sum((test_data$Diastole-test_data$PredictedDiastole)^2))
+
+
+### Ejection Fraction
+ef_reg <- glm(ejection_fraction ~ patient_id + rows + columns + spacing + slice_thickness + plane + slice_count + up_down_agg + age_years + sex + small_slice_count + normal_slice_count + angle, data=train_data)
+summary(dias_reg)
+
+test_data$pred_ejection_fraction <-predict(ef_reg, newdata = test_data)
+
+ggplot(test_data, aes(x=test_data$ejection_fraction, y=test_data$pred_ejection_fraction)) + 
+  geom_point()+
+  labs(title="Predicted vs Actual Ejection Fraction", x = "Predicted Ejection Fraction (%)", y = "Actual Ejection Fraction (%)") + 
+  theme(plot.title = element_text(size=30)) + 
+  geom_smooth(method=lm)
+
+cor(test_data$ejection_fraction, test_data$pred_ejection_fraction)
+sqrt(sum((test_data$ejection_fraction-test_data$pred_ejection_fraction)^2))
+
+
+
+
+```
+
+## Step 5: Calculate Key Metrics 
+
+```{r, echo=TRUE, message=FALSE, warning=FALSE,  fig.height = 8, fig.width = 8}
+
+
+```
+
+
